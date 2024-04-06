@@ -38,7 +38,7 @@ public class SlideViewerFrame extends JFrame {
 				}
 			});
 		getContentPane().add(slideViewerComponent);
-		addKeyListener(new KeyController(presentation)); // add a controller
+		addKeyListener(presentation.getKeyController()); // add a controller
 		setMenuBar(new MenuController(this, presentation));	// add another controller
 		setSize(new Dimension(WIDTH, HEIGHT)); // Same sizes as Slide has.
 		setVisible(true);
