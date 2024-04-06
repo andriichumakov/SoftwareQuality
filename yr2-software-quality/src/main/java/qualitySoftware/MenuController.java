@@ -8,6 +8,7 @@ import java.awt.MenuShortcut;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
@@ -51,13 +52,15 @@ public class MenuController extends MenuBar {
 	protected static final String LOADERR = "Load Error";
 	protected static final String SAVEERR = "Save Error";
 
-	public MenuController(Frame frame, Presentation pres) {
-		parent = frame;
-		presentation = pres;
+	private HashMap<String, MenuItem> menuItems; // used to look up menu items based on their name to bind commands
+
+	public MenuController() {
+		this.menuItems = new HashMap<>();
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
-		menuItem.addActionListener(new ActionListener() {
+		add(fileMenu);
+		/*menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
 				presentation.clear();
 				Accessor xmlAccessor = new XMLAccessor();
@@ -70,7 +73,8 @@ public class MenuController extends MenuBar {
 				}
 				parent.repaint();
 			}
-		});
+		} );*/
+		/*
 		fileMenu.add(menuItem = mkMenuItem(NEW));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
@@ -127,11 +131,27 @@ public class MenuController extends MenuBar {
 				AboutBox.show(parent);
 			}
 		});
-		setHelpMenu(helpMenu); // needed for portability (Motif, etc.).
+		setHelpMenu(helpMenu);		// needed for portability (Motif, etc.).
+		 */
 	}
 
 	// create a menu item
 	public MenuItem mkMenuItem(String name) {
-		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
+		MenuItem menuItem = new MenuItem(name, new MenuShortcut(name.charAt(0)));
+		this.menuItems.put(name, menuItem);
+		return menuItem;
+	}
+
+	public void bindMenuItem(MenuItem menuItem, Command command) {
+		menuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				command.execute();
+			}
+		});
+	}
+
+	public MenuItem getMenuItem(String name) {
+		return menuItems.getOrDefault(name, null);
 	}
 }
