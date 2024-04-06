@@ -18,14 +18,14 @@ public class Slide {
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
 	protected String title; // title is saved separately
-	protected Vector<SlideItem> items; // slide items are saved in a Vector
+	protected Vector<BaseSlideItem> items; // slide items are saved in a Vector
 
 	public Slide() {
-		items = new Vector<SlideItem>();
+		items = new Vector<BaseSlideItem>();
 	}
 
 	// Add a slide item
-	public void append(SlideItem anItem) {
+	public void append(BaseSlideItem anItem) {
 		items.addElement(anItem);
 	}
 
@@ -50,7 +50,7 @@ public class Slide {
 	}
 
 	// give all SlideItems in a Vector
-	public Vector<SlideItem> getSlideItems() {
+	public Vector<BaseSlideItem> getSlideItems() {
 		return items;
 	}
 
@@ -64,12 +64,12 @@ public class Slide {
 		float scale = getScale(area);
 	    int y = area.y;
 	// Title is handled separately
-	    SlideItem slideItem = new TextItem(0, getTitle());
+	    BaseSlideItem slideItem = new TextItem(0, getTitle());
 	    Style style = Style.getStyle(slideItem.getLevel());
 	    slideItem.draw(area.x, y, scale, g, style, view);
 	    y += slideItem.getBoundingBox(g, view, scale, style).height;
 	    for (int number=0; number<getSize(); number++) {
-	      slideItem = (SlideItem)getSlideItems().elementAt(number);
+	      slideItem = (BaseSlideItem)getSlideItems().elementAt(number);
 	      style = Style.getStyle(slideItem.getLevel());
 	      slideItem.draw(area.x, y, scale, g, style, view);
 	      y += slideItem.getBoundingBox(g, view, scale, style).height;

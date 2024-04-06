@@ -1,5 +1,4 @@
 package qualitySoftware;
-
 import javax.swing.JOptionPane;
 
 import java.io.IOException;

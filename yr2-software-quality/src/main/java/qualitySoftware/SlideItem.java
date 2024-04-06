@@ -15,21 +15,7 @@ import java.awt.image.ImageObserver;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-public abstract class SlideItem {
-	private int level = 0; // level of the slideitem
-
-	public SlideItem(int lev) {
-		level = lev;
-	}
-
-	public SlideItem() {
-		this(0);
-	}
-
-// Give the level
-	public int getLevel() {
-		return level;
-	}
+interface SlideItem {
 
 // Give the bounding box
 	public abstract Rectangle getBoundingBox(Graphics g, 

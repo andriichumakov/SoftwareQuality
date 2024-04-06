@@ -154,17 +154,17 @@ public class XMLAccessor extends Accessor {
 		// heading + title
 		out.println("<slide>");
 		out.println("<title>" + slide.getTitle() + "</title>");
-		Vector<SlideItem> slideItems = slide.getSlideItems();
+		Vector<BaseSlideItem> slideItems = slide.getSlideItems();
 		// iterate over all slide items and save them
 		for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++) {
-			SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
+			BaseSlideItem slideItem = (BaseSlideItem) slideItems.elementAt(itemNumber);
 			saveSlideItem(out, slideItem);
 		}
 		out.println("</slide>");
 	}
 
 	// save a single slide item
-	private void saveSlideItem(PrintWriter out, SlideItem slideItem)
+	private void saveSlideItem(PrintWriter out, BaseSlideItem slideItem)
 	{
 		out.println(slideItem.toXML());
 		/*
