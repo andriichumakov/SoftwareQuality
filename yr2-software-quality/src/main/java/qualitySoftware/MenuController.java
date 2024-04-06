@@ -59,6 +59,7 @@ public class MenuController extends MenuBar {
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
 		fileMenu.add(menuItem = mkMenuItem(OPEN));
+		fileMenu.add(menuItem = mkMenuItem(NEW));
 		add(fileMenu);
 		/*menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent) {
