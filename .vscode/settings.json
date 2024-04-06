@@ -2,5 +2,6 @@
     "java.project.sourcePaths": [
         "src",
         "yr2-software-quality/src/main/java/quality-software"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

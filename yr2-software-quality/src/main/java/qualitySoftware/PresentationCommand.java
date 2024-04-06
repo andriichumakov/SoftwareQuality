@@ -1,3 +1,5 @@
+package qualitySoftware;
+
 public abstract class PresentationCommand implements Command
 {
     protected Presentation presentation;

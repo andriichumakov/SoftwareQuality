@@ -1,3 +1,5 @@
+package qualitySoftware;
+
 public class PreviousSlideCommand extends PresentationCommand
 {
 

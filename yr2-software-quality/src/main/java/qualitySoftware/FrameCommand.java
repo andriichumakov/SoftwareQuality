@@ -1,3 +1,5 @@
+package qualitySoftware;
+
 import java.awt.Frame;
 
 public abstract class FrameCommand implements Command
