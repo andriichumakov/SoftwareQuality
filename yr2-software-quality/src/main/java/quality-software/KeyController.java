@@ -1,5 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;
+import java.util.HashMap;
 
 /** <p>This is the KeyController (KeyListener)</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -12,12 +13,30 @@ import java.awt.event.KeyAdapter;
 */
 
 public class KeyController extends KeyAdapter {
-	private Presentation presentation; // Commands are given to the presentation
+	private HashMap<Integer, Command> commands; // stores a list of all the keys that trigger a command; use addCommand to add another pair
 
-	public KeyController(Presentation p) {
-		presentation = p;
+	public KeyController()
+	{
+		this.commands = new HashMap<>();
 	}
 
+	public void addCommand(int keyCode, Command command)
+	{
+		if (!this.commands.containsKey(keyCode)) {
+			this.commands.put(keyCode, command);
+		}
+	}
+
+	// override from KeyAdapter, this method is invoked any time a key is pressed
+	public void keyPressed(KeyEvent keyEvent)
+	{
+		// check if there is a corresponding command to the key, if so, execute it;
+		int keyCode = keyEvent.getKeyCode();
+		if (this.commands.containsKey(keyCode)) {
+			this.commands.get(keyCode).execute();
+		}
+	}
+	/*
 	public void keyPressed(KeyEvent keyEvent) {
 		switch(keyEvent.getKeyCode()) {
 			case KeyEvent.VK_PAGE_DOWN:
@@ -38,5 +57,5 @@ public class KeyController extends KeyAdapter {
 			default:
 				break;
 		}
-	}
+	}*/
 }

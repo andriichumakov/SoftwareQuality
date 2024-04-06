@@ -26,7 +26,7 @@ public class JabberPoint {
 		
 		Style.createStyles();
 		Presentation presentation = new Presentation();
-		new SlideViewerFrame(JABVERSION, presentation);
+		new SlideViewerFrame(JABVERSION, presentation, new MenuController(), new KeyController());
 		try {
 			if (argv.length == 0) { // een demo presentatie
 				Accessor.getDemoAccessor().loadFile(presentation, "");

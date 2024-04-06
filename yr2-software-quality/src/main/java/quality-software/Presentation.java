@@ -1,3 +1,4 @@
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 
@@ -19,12 +20,13 @@ public class Presentation {
 	private int currentSlideNumber = 0; // the slidenummer of the current Slide
 	private SlideViewerComponent slideViewComponent = null; // the viewcomponent of the Slides
 
+
 	public Presentation() {
 		slideViewComponent = null;
 		clear();
 	}
 
-	public Presentation(SlideViewerComponent slideViewerComponent) {
+	public Presentation(SlideViewerComponent slideViewerComponent, KeyController keyController, MenuController menuController) {
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}
