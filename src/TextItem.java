@@ -109,4 +109,8 @@ public class TextItem extends SlideItem {
 	public String toString() {
 		return "TextItem[" + getLevel()+","+getText()+"]";
 	}
+
+	public String toXML() {
+		return "<item kind=\"text\" level=\"" + this.getLevel() + "\">" + this.getText() + "</item>";
+	}
 }

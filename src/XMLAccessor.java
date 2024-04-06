@@ -164,6 +164,8 @@ public class XMLAccessor extends Accessor {
 	// save a single slide item
 	private void saveSlideItem(PrintWriter out, SlideItem slideItem)
 	{
+		out.println(slideItem.toXML());
+		/*
 		// heading
 		out.print("<item kind=");
 		// determine item type
@@ -179,5 +181,7 @@ public class XMLAccessor extends Accessor {
 			}
 		}
 		out.println("</item>");
+
+		 */
 	}
 }

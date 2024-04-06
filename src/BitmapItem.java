@@ -68,4 +68,8 @@ public class BitmapItem extends SlideItem {
 	public String toString() {
 		return "BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
+
+	public String toXML() {
+		return "<item kind=\"image\" level=\"" + this.getLevel() + "\">" + this.getName() + "</item>";
+	}
 }
