@@ -20,43 +20,15 @@ public class Presentation {
 	private int currentSlideNumber = 0; // the slidenummer of the current Slide
 	private SlideViewerComponent slideViewComponent = null; // the viewcomponent of the Slides
 
-	private KeyController keyController;
 
-	public Presentation(KeyController keyController) {
+	public Presentation() {
 		slideViewComponent = null;
 		clear();
-		this.keyController = keyController;
-		this.setupKeyController(this.keyController);
 	}
 
-	public Presentation(SlideViewerComponent slideViewerComponent, KeyController keyController) {
-		this(keyController);
+	public Presentation(SlideViewerComponent slideViewerComponent, KeyController keyController, MenuController menuController) {
 		this.slideViewComponent = slideViewerComponent;
 		clear();
-}	
-	private void setupKeyController(KeyController keyController) {
-		// responsible for ensuring that the key controller knows which commands to expect
-		// if there are any new presentation-related keyboard commands, put them here
-		NextSlideCommand next = new NextSlideCommand(this);
-		PreviousSlideCommand prev =  new PreviousSlideCommand(this);
-		QuitCommand quit = new QuitCommand();
-		// Next Slide shortcuts
-		keyController.addCommand(KeyEvent.VK_DOWN, next);
-		keyController.addCommand(KeyEvent.VK_PAGE_DOWN, next);
-		keyController.addCommand(KeyEvent.VK_ENTER, next);
-		keyController.addCommand('+', next);
-		// Previous slide shortcuts
-		keyController.addCommand(KeyEvent.VK_UP, prev);
-		keyController.addCommand(KeyEvent.VK_PAGE_UP, prev);
-		keyController.addCommand('-', prev);
-		// Quit Command shortcuts
-		keyController.addCommand('q', quit);
-		keyController.addCommand('Q', quit);
-
-	}
-
-	public KeyController getKeyController() {
-		return this.keyController;
 	}
 
 	public int getSize() {

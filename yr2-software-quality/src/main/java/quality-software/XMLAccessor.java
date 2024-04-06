@@ -83,7 +83,7 @@ public class XMLAccessor extends Accessor {
 		}
 	}
 
-	public void loadSlide(Slide slide, Element xmlSlide) {
+	protected void loadSlide(Slide slide, Element xmlSlide) {
 		try {
 			slide.setTitle(getTitle(xmlSlide, SLIDETITLE));
 
@@ -147,7 +147,7 @@ public class XMLAccessor extends Accessor {
 	}
 
 	// save a single slide
-	private void saveSlide(PrintWriter out, Slide slide)
+	protected void saveSlide(PrintWriter out, Slide slide)
 	{
 		// heading + title
 		out.println("<slide>");
@@ -162,7 +162,7 @@ public class XMLAccessor extends Accessor {
 	}
 
 	// save a single slide item
-	private void saveSlideItem(PrintWriter out, SlideItem slideItem)
+	protected void saveSlideItem(PrintWriter out, SlideItem slideItem)
 	{
 		out.println(slideItem.toXML());
 		/*
