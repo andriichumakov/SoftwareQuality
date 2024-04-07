@@ -4,20 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94cb241e-bfc2-45b8-8823-290a49b8d97f" name="Changes" comment="" />
+    <list default="true" id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/JabberPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/JabberPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/command/QuitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/command/QuitCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2ekoEvLoSg9bYwFT22pZjL0bTRG" />
+  <component name="ProjectId" id="2emek7NIVmR3D9bSXoySvy0Cg9l" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,11 +43,19 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.JabberPoint.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.All in JabberPoint.executor": "Run",
+    "JUnit.All in yr2-software-quality.executor": "Run",
+    "JUnit.GotoSlideCommandTest.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "folderStructure",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/hakan/Documents/GitHub/SoftwareQuality/yr2-software-quality/src/test",
     "last_opened_file_path": "C:/Users/hakan/Documents/GitHub/SoftwareQuality",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -37,31 +63,51 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="qualitySoftware.command" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="SoftwareQuality" />
+  <component name="RunManager" selected="JUnit.GotoSlideCommandTest">
+    <configuration name="JabberPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="qualitySoftware.JabberPoint" />
+      <module name="JabberPoint" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="qualitySoftware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="SoftwareQuality" />
-      <option name="filePath" />
+    <configuration name="All in JabberPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JabberPoint" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GotoSlideCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JabberPoint" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GotoSlideCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.GotoSlideCommandTest" />
+        <item itemvalue="Application.JabberPoint" />
+        <item itemvalue="JUnit.All in JabberPoint" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -74,13 +120,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="94cb241e-bfc2-45b8-8823-290a49b8d97f" name="Changes" comment="" />
-      <created>1712457829126</created>
+      <changelist id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="" />
+      <created>1712514320975</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712457829126</updated>
-      <workItem from="1712457830426" duration="38000" />
-      <workItem from="1712457935925" duration="2811000" />
+      <updated>1712514320975</updated>
+      <workItem from="1712514321772" duration="4972000" />
+      <workItem from="1712519829736" duration="40000" />
+      <workItem from="1712519911034" duration="1890000" />
     </task>
     <servers />
   </component>
