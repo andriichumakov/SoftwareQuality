@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/JabberPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/JabberPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/command/QuitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/command/QuitCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +46,7 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in JabberPoint.executor": "Run",
     "JUnit.All in yr2-software-quality.executor": "Run",
+    "JUnit.GotoSlideCommandTest.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -61,7 +68,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.JabberPoint">
+  <component name="RunManager" selected="JUnit.GotoSlideCommandTest">
     <configuration name="JabberPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="qualitySoftware.JabberPoint" />
       <module name="JabberPoint" />
@@ -85,8 +92,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GotoSlideCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JabberPoint" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GotoSlideCommandTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GotoSlideCommandTest" />
         <item itemvalue="Application.JabberPoint" />
         <item itemvalue="JUnit.All in JabberPoint" />
       </list>
@@ -110,7 +127,7 @@
       <updated>1712514320975</updated>
       <workItem from="1712514321772" duration="4972000" />
       <workItem from="1712519829736" duration="40000" />
-      <workItem from="1712519911034" duration="878000" />
+      <workItem from="1712519911034" duration="1890000" />
     </task>
     <servers />
   </component>
