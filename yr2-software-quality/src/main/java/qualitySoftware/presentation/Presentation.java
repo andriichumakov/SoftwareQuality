@@ -1,7 +1,5 @@
 package qualitySoftware.presentation;
 
-import qualitySoftware.ui.KeyController;
-import qualitySoftware.ui.MenuController;
 import qualitySoftware.ui.SlideViewerComponent;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ public class Presentation {
 		clear();
 	}
 
-	public Presentation(SlideViewerComponent slideViewerComponent, KeyController keyController, MenuController menuController) {
+	public Presentation(SlideViewerComponent slideViewerComponent) {
 		this.slideViewComponent = slideViewerComponent;
 		clear();
 	}

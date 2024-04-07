@@ -1,10 +1,8 @@
 package qualitySoftware.ui;
 
 import qualitySoftware.command.Command;
-import qualitySoftware.presentation.Presentation;
 
 import java.awt.MenuBar;
-import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.MenuShortcut;
@@ -26,9 +24,6 @@ import java.util.HashMap;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 public class MenuController extends MenuBar {
-
-	private Frame parent; // the frame, only used as parent for the Dialogs
-	private Presentation presentation; // Commands are given to the presentation
 
 	private static final long serialVersionUID = 227L;
 
