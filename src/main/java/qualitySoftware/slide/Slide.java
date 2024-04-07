@@ -1,6 +1,6 @@
-package qualitySoftware.slide;
+package main.java.qualitySoftware.slide;
 
-import qualitySoftware.Style;
+import main.java.qualitySoftware.Style;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;

@@ -1,6 +1,6 @@
-package qualitySoftware.accessor;
+package main.java.qualitySoftware.accessor;
 
-import qualitySoftware.controller.Presentation;
+import main.java.qualitySoftware.controller.Presentation;
 
 import java.io.IOException;
 

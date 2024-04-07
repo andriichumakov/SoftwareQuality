@@ -1,4 +1,4 @@
-package qualitySoftware;
+package main.java.qualitySoftware;
 
 import java.awt.Color;
 import java.awt.Font;

@@ -1,4 +1,4 @@
-package qualitySoftware.command;
+package main.java.qualitySoftware.command;
 
 public interface Command
 {

@@ -1,6 +1,6 @@
-package qualitySoftware.controller;
+package main.java.qualitySoftware.controller;
 
-import qualitySoftware.slide.Slide;
+import main.java.qualitySoftware.slide.Slide;
 
 import java.awt.Color;
 import java.awt.Font;

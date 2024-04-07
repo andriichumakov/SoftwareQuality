@@ -1,7 +1,7 @@
-package qualitySoftware.slide;
+package main.java.qualitySoftware.slide;
 
-import qualitySoftware.slide.SlideItem;
-import qualitySoftware.Style;
+import main.java.qualitySoftware.slide.SlideItem;
+import main.java.qualitySoftware.Style;
 
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;

@@ -1,11 +1,11 @@
-package qualitySoftware;
+package main.java.qualitySoftware;
 
-import qualitySoftware.accessor.Accessor;
-import qualitySoftware.accessor.XMLAccessor;
-import qualitySoftware.controller.KeyController;
-import qualitySoftware.controller.MenuController;
-import qualitySoftware.controller.Presentation;
-import qualitySoftware.controller.SlideViewerFrame;
+import main.java.qualitySoftware.accessor.Accessor;
+import main.java.qualitySoftware.accessor.XMLAccessor;
+import main.java.qualitySoftware.controller.KeyController;
+import main.java.qualitySoftware.controller.MenuController;
+import main.java.qualitySoftware.controller.Presentation;
+import main.java.qualitySoftware.controller.SlideViewerFrame;
 
 import javax.swing.JOptionPane;
 

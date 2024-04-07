@@ -1,8 +1,8 @@
-package qualitySoftware.accessor;
+package main.java.qualitySoftware.accessor;
 
-import qualitySoftware.slide.BitmapItem;
-import qualitySoftware.controller.Presentation;
-import qualitySoftware.slide.Slide;
+import main.java.qualitySoftware.slide.BitmapItem;
+import main.java.qualitySoftware.controller.Presentation;
+import main.java.qualitySoftware.slide.Slide;
 
 /** A built in demo-presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman

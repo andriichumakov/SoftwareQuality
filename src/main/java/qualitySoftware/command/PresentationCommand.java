@@ -1,6 +1,6 @@
-package qualitySoftware.command;
+package main.java.qualitySoftware.command;
 
-import qualitySoftware.controller.Presentation;
+import main.java.qualitySoftware.controller.Presentation;
 
 public abstract class PresentationCommand implements Command
 {

@@ -1,6 +1,6 @@
-package qualitySoftware.controller;
+package main.java.qualitySoftware.controller;
 
-import qualitySoftware.command.*;
+import main.java.qualitySoftware.command.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

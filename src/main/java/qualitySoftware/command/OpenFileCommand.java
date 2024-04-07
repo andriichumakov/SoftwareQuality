@@ -1,6 +1,6 @@
-package qualitySoftware.command;
-import qualitySoftware.controller.Presentation;
-import qualitySoftware.accessor.XMLAccessor;
+package main.java.qualitySoftware.command;
+import main.java.qualitySoftware.controller.Presentation;
+import main.java.qualitySoftware.accessor.XMLAccessor;
 
 import javax.swing.*;
 import java.awt.Frame;

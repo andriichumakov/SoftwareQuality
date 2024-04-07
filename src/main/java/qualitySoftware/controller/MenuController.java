@@ -1,6 +1,6 @@
-package qualitySoftware.controller;
+package main.java.qualitySoftware.controller;
 
-import qualitySoftware.command.Command;
+import main.java.qualitySoftware.command.Command;
 
 import java.awt.MenuBar;
 import java.awt.Frame;
