@@ -1,0 +1,15 @@
+<!--
+ Document Type Definition for JabberPoint presentations
+ $Id$
+ -->
+<!ELEMENT showtitle (#PCDATA)>
+<!ELEMENT presentation (showtitle, slide+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT slide (title, (item | wrap)*)> <!-- Allow both item and wrap elements -->
+<!ELEMENT item (#PCDATA)>
+<!ATTLIST item kind CDATA #REQUIRED>
+<!ATTLIST item level CDATA #REQUIRED>
+<!ELEMENT wrap (item | wrap)*> <!-- Allow nested wrap elements -->
+<!ATTLIST wrap kind CDATA #REQUIRED>
+<!ATTLIST wrap color CDATA #IMPLIED>
+<!ATTLIST wrap thickness CDATA #IMPLIED>
