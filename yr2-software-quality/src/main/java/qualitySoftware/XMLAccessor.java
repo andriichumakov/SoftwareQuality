@@ -165,6 +165,7 @@ public class XMLAccessor extends Accessor {
 	// save a single slide item
 	protected void saveSlideItem(PrintWriter out, SlideItem slideItem)
 	{
+		// Delegate the responsibility to the slide items
 		out.println(slideItem.toXML());
 		/*
 		// heading
