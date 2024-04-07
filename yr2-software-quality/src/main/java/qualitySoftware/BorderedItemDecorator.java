@@ -37,7 +37,7 @@ public class BorderedItemDecorator extends SlideItemDecorator
         Rectangle boundingBox = getBoundingBox(g, observer, scale, style);
 
         // Draw the wrapped item first
-        super.draw(x, y, scale, g, style, observer);
+        super.draw(x -4, y-4, scale, g, style, observer);
 
         // Draw the border just outside the bounding box
         g.setColor(borderColor);

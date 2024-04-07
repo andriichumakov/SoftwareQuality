@@ -32,7 +32,7 @@ public class ShadowedItemDecorator extends SlideItemDecorator {
 
     @Override
     public void draw(int x, int y, float scale, Graphics g, Style style, ImageObserver observer) {
-        super.draw(x, y, scale, g, style, observer);
+        super.draw(x - this.shadowThickness, y - this.shadowThickness, scale, g, style, observer);
 
         // Draw shadow
         g.setColor(shadowColor);

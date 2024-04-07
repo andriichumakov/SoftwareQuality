@@ -55,8 +55,14 @@ class DemoPresentation extends Accessor {
 
 		slide = new Slide();
 		slide.setTitle("The fourth slide");
-		slide.append(new ShadowedItemDecorator(TextItemCreator.createSlideItem(1, "This item has a shadow"), Color.DARK_GRAY, 3));
-		slide.append(new BorderedItemDecorator(TextItemCreator.createSlideItem(2, "This one has a border"), Color.YELLOW));
+		slide.append(new ShadowedItemDecorator(TextItemCreator.createSlideItem(1, "This item has a shadow"),
+				Color.DARK_GRAY, 3));
+		slide.append(new BorderedItemDecorator(TextItemCreator.createSlideItem(2, "This one has a border"),
+				Color.YELLOW));
+		slide.append(new ShadowedItemDecorator(new BorderedItemDecorator(TextItemCreator.createSlideItem(3,
+				"This one has both"), Color.BLUE), Color.DARK_GRAY, 3));
+		slide.append(new BorderedItemDecorator(SlideItemCreator.createSlideItem(BitmapItem.class, 1, "serclogo_fc.jpg"), Color.red));
+		presentation.append(slide);
 	}
 
 	public void saveFile(Presentation presentation, String unusedFilename) {
