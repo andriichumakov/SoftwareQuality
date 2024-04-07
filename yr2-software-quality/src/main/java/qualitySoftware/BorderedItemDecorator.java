@@ -8,17 +8,14 @@ import java.awt.image.ImageObserver;
 public class BorderedItemDecorator extends SlideItemDecorator
 {
     private Color borderColor;
-    private int borderWidth;
 
     public BorderedItemDecorator(SlideItem wrappee) {
         super(wrappee);
         this.borderColor = Color.BLACK;
-        this.borderWidth = 1;
     }
-    public BorderedItemDecorator(SlideItem wrappee, Color borderColor, int borderWidth) {
+    public BorderedItemDecorator(SlideItem wrappee, Color borderColor) {
         super(wrappee);
         this.borderColor = borderColor;
-        this.borderWidth = borderWidth;
     }
 
     public Color getBorderColor()
@@ -26,31 +23,30 @@ public class BorderedItemDecorator extends SlideItemDecorator
         return borderColor;
     }
 
-    public int getBorderWidth()
-    {
-        return borderWidth;
-    }
-
     @Override
     public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style)
     {
         Rectangle boundingBox = super.getBoundingBox(g, observer, scale, style);
-        boundingBox.grow(borderWidth * 2, borderWidth * 2);
+        boundingBox.grow(2, 2);
         return boundingBox;
     }
 
     @Override
     public void draw(int x, int y, float scale, Graphics g, Style style, ImageObserver observer)
     {
-        g.setColor(borderColor);
         Rectangle boundingBox = getBoundingBox(g, observer, scale, style);
-        g.drawRect(boundingBox.x, boundingBox.y, boundingBox.width, boundingBox.height);
+
+        // Draw the wrapped item first
         super.draw(x, y, scale, g, style, observer);
+
+        // Draw the border just outside the bounding box
+        g.setColor(borderColor);
+        g.drawRect(boundingBox.x - 1 + x, boundingBox.y - 1 + y, boundingBox.width + 2, boundingBox.height + 2);
     }
 
     @Override
     public String toXML() {
-        return "<wrap kind=\"border\" size=\"" + this.getBorderWidth() + "\" color=" + this.getBorderColor().toString() + "\">" +
+        return "<wrap kind=\"border\" color=" + this.getBorderColor().toString() + "\">" +
                 this.wrappee.toXML() + "</wrap>";
     }
 }
