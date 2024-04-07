@@ -118,12 +118,11 @@ public class XMLAccessor extends Accessor {
 		}
 		// getting item type, checking if its text or image or invalid, creating corresponding item
 		String type = attributes.getNamedItem(KIND).getTextContent();
-		if (TEXT.equals(type)) {
-			slide.append(new TextItem(level, item.getTextContent()));
-		} else if (IMAGE.equals(type)) {
-			slide.append(new BitmapItem(level, item.getTextContent()));
-		} else {
+		SlideItem slideItem = SlideItemCreator.createSlideItem(type, level, item.getTextContent());
+		if (slideItem == null) {
 			System.err.println(UNKNOWNTYPE);
+		} else {
+			slide.append(slideItem);
 		}
 	}
 
@@ -153,7 +152,7 @@ public class XMLAccessor extends Accessor {
 		// heading + title
 		out.println("<slide>");
 		out.println("<title>" + slide.getTitle() + "</title>");
-		Vector<BaseSlideItem> slideItems = slide.getSlideItems();
+		Vector<SlideItem> slideItems = slide.getSlideItems();
 		// iterate over all slide items and save them
 		for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++) {
 			BaseSlideItem slideItem = (BaseSlideItem) slideItems.elementAt(itemNumber);

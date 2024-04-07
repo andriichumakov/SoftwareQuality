@@ -19,14 +19,14 @@ public class Slide {
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
 	protected String title; // title is saved separately
-	protected Vector<BaseSlideItem> items; // slide items are saved in a Vector
+	protected Vector<SlideItem> items; // slide items are saved in a Vector
 
 	public Slide() {
-		items = new Vector<BaseSlideItem>();
+		items = new Vector<SlideItem>();
 	}
 
 	// Add a slide item
-	public void append(BaseSlideItem anItem) {
+	public void append(SlideItem anItem) {
 		items.addElement(anItem);
 	}
 
@@ -42,7 +42,7 @@ public class Slide {
 
 	// Create TextItem of String, and add the TextItem 
 	public void append(int level, String message) {
-		append(new TextItem(level, message));
+		append(TextItemCreator.createSlideItem(level, message));
 	}
 
 	// give the  SlideItem
@@ -51,7 +51,7 @@ public class Slide {
 	}
 
 	// give all SlideItems in a Vector
-	public Vector<BaseSlideItem> getSlideItems() {
+	public Vector<SlideItem> getSlideItems() {
 		return items;
 	}
 
@@ -65,7 +65,7 @@ public class Slide {
 		float scale = getScale(area);
 	    int y = area.y;
 	// Title is handled separately
-	    BaseSlideItem slideItem = new TextItem(0, getTitle());
+	    BaseSlideItem slideItem = TextItemCreator.createSlideItem(0, getTitle());
 	    Style style = Style.getStyle(slideItem.getLevel());
 	    slideItem.draw(area.x, y, scale, g, style, view);
 	    y += slideItem.getBoundingBox(g, view, scale, style).height;
