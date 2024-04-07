@@ -1,4 +1,12 @@
 package qualitySoftware;
+import qualitySoftware.accessor.Accessor;
+import qualitySoftware.accessor.XMLAccessor;
+import qualitySoftware.presentation.Presentation;
+import qualitySoftware.presentation.Style;
+import qualitySoftware.ui.KeyController;
+import qualitySoftware.ui.MenuController;
+import qualitySoftware.ui.SlideViewerFrame;
+
 import javax.swing.JOptionPane;
 
 import java.io.IOException;
