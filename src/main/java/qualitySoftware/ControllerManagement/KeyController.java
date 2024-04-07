@@ -1,4 +1,4 @@
-package qualitySoftware;
+package main.java.qualitySoftware.ControllerManagement;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;

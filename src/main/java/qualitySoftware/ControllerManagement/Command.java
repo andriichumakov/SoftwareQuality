@@ -1,4 +1,4 @@
-package qualitySoftware;
+package main.java.qualitySoftware.ControllerManagement;
 
 public interface Command
 {

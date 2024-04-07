@@ -1,4 +1,4 @@
-package qualitySoftware;
+package main.java.qualitySoftware.ControllerManagement;
 
 public abstract class PresentationCommand implements Command
 {

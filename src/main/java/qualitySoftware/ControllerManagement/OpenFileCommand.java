@@ -1,4 +1,4 @@
-package qualitySoftware;
+package main.java.qualitySoftware.ControllerManagement;
 import javax.swing.*;
 import java.awt.Frame;
 import java.io.IOException;
