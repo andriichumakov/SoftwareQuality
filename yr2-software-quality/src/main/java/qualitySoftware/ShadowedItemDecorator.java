@@ -47,8 +47,8 @@ public class ShadowedItemDecorator extends SlideItemDecorator {
 
     @Override
     public String toXML() {
-        return "<wrap kind=\"shadowed\" cColor=" + this.getShadowColor().toString() +
-                " thickness=" + this.getShadowThickness() + "\">" +
+        return "<wrap kind=\"shadow\" color=\"" + this.formatColor(this.getShadowColor()) +
+                "\" thickness=\"" + this.getShadowThickness() + "\">" +
                 this.wrappee.toXML() + "</wrap>";
     }
 }

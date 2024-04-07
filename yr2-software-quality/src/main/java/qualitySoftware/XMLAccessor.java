@@ -1,17 +1,16 @@
 package qualitySoftware;
 
+import java.awt.*;
 import java.io.*;
 import java.util.Vector;
 
+import javax.print.Doc;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.w3c.dom.*;
 import org.xml.sax.SAXException;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.NodeList;
 
 
 /** XMLAccessor, reads and writes XML files
@@ -51,7 +50,79 @@ public class XMLAccessor extends Accessor {
 
 	}
 
+	public Element loadFile(String filename) throws IOException
+	{
+		try {
+			// Create the basic document
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			Document document = builder.parse(new File(filename)); // Create a JDOM document
+			Element doc = document.getDocumentElement();
+			return doc;
+		} catch (IOException iox) {
+			System.err.println(iox.toString());
+		} catch (SAXException sax) {
+			System.err.println(sax.getMessage());
+		} catch (ParserConfigurationException pcx) {
+			System.err.println(PCE);
+		}
+		return null;
+	}
+
+	public void loadFile(Presentation targetPres, String fileFrom) throws IOException {
+		Element doc = this.loadFile(fileFrom);
+		// create a presentation title from <title>
+		targetPres.setTitle(this.getTitle(doc, SHOWTITLE));
+		NodeList xmlSlides = doc.getElementsByTagName(SLIDE);
+
+		// go through each <slide> tag and plug them into the presentation
+		for (int slideIndex = 0; slideIndex < xmlSlides.getLength(); slideIndex++) {
+			Element xmlSlide = (Element) xmlSlides.item(slideIndex);
+			Slide slide = new Slide();
+			this.loadSlide(slide, xmlSlide);
+			targetPres.append(slide);
+		}
+	}
+
+	protected void loadSlide(Slide slide, Element xmlSlide) {
+		slide.setTitle(this.getTitle(xmlSlide, SLIDETITLE));
+
+		// Recursively traverse all descendant nodes of xmlSlide
+		loadSlideComponents(slide, xmlSlide.getChildNodes(), null);
+	}
+
+	protected void loadSlideComponents(Slide slide, NodeList nodeList, SlideItemDecorator lastWrapper) {
+		for (int index = 0; index < nodeList.getLength(); index++) {
+			Node node = nodeList.item(index);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element element = (Element) node;
+				String tagName = element.getTagName();
+
+				if ("wrap".equals(tagName)) {
+					SlideItemDecorator wrapper = wrapperFromXML(element);
+					if (wrapper != null) {
+						if (lastWrapper != null) {
+							lastWrapper.setWrappee(wrapper);
+						}
+						lastWrapper = wrapper;
+					}
+				} else if ("item".equals(tagName)) {
+					SlideItem item = itemFromXML(element);
+					if (lastWrapper != null) {
+						lastWrapper.setWrappee(item);
+						lastWrapper = null;
+					} else {
+						slide.append(item);
+					}
+				}
+
+				// Recursively process child nodes
+				loadSlideComponents(slide, element.getChildNodes(), lastWrapper);
+			}
+		}
+	}
+
 	// load the presentation file
+	/*
 	public void loadFile(Presentation presentation, String filename) throws IOException {
 		int slideNumber, itemNumber, max = 0, maxItems = 0;
 		try {
@@ -83,8 +154,46 @@ public class XMLAccessor extends Accessor {
 			System.err.println(PCE);
 		}
 	}
+	 */
 
+	/*
 	protected void loadSlide(Slide slide, Element xmlSlide) {
+		slide.setTitle(this.getTitle(xmlSlide, SLIDETITLE));
+
+		NodeList slideComponents = xmlSlide.getChildNodes();
+		SlideItemDecorator lastEmptyWrapper = null;
+
+		for (int index = 0; index < slideComponents.getLength(); index++) {
+			Node node = slideComponents.item(index);
+			if (node.getNodeType() != Node.ELEMENT_NODE) {
+				// some elements are not xml elements, so we should skip those
+				continue;
+			}
+			Element item = (Element) slideComponents.item(index);
+			SlideItem result = null;
+			switch (item.getTagName()) {
+				case "wrap":
+					result = wrapperFromXML(item);
+					if (result != null) {
+						if (lastEmptyWrapper != null) {
+							lastEmptyWrapper.setWrappee(result);
+						}
+						lastEmptyWrapper = (SlideItemDecorator) result;
+					}
+					break;
+				case "item":
+					result = itemFromXML(item);
+					if (lastEmptyWrapper != null) {
+						lastEmptyWrapper.setWrappee(result);
+						lastEmptyWrapper = null;
+					}
+					break;
+			}
+			if (result != null) {
+				slide.append(result);
+			}
+		}
+        /*
 		try {
 			slide.setTitle(getTitle(xmlSlide, SLIDETITLE));
 
@@ -97,10 +206,133 @@ public class XMLAccessor extends Accessor {
 		} catch (Exception exc) {
 			throw exc;
 		}
+	}
+	 */
 
+	protected SlideItemDecorator wrapperFromXML(Element xmlWrapper) {
+		SlideItemDecorator wrapper = null;
+		NamedNodeMap wrapperAttributes = xmlWrapper.getAttributes();
+		String wrapperType = wrapperAttributes.getNamedItem(KIND).getTextContent();
+
+		Color color = Color.BLACK;
+		String colorTxt = wrapperAttributes.getNamedItem("color").getTextContent();
+
+		try {
+			color = Color.decode(colorTxt);
+		} catch (NumberFormatException | NullPointerException ex) {
+			// Handle parsing error or null color
+			ex.printStackTrace();
+		}
+
+		if (wrapperType.equals("shadow")) {
+			int thickness = 1;
+			String thicknessTxt = wrapperAttributes.getNamedItem("thickness").getTextContent();
+			try {
+				thickness = Integer.parseInt(thicknessTxt);
+			} catch (NumberFormatException | NullPointerException ex) {
+				// Handle parsing error or null thickness
+				ex.printStackTrace();
+			}
+			if (color != null && thickness != 0) {
+				wrapper = new ShadowedItemDecorator(null, color, thickness);
+			}
+		} else if (wrapperType.equals("border")) {
+			if (color != null) {
+				wrapper = new BorderedItemDecorator(null, color);
+			}
+		}
+		return wrapper;
+	}
+
+	protected SlideItem itemFromXML(Element xmlItem) {
+		int level = 1;
+		// check if the item has specified a level
+		NamedNodeMap attributes = xmlItem.getAttributes();
+		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
+		if (leveltext != null) {
+			// if so, try to parse it and set it as the level if it is valid
+			try {
+				level = Integer.parseInt(leveltext);
+			} catch(NumberFormatException x) {
+				System.err.println(NFE);
+			}
+		}
+		// getting item type, checking if its text or image or invalid, creating corresponding item
+		String type = attributes.getNamedItem(KIND).getTextContent();
+		SlideItem slideItem = SlideItemCreator.createSlideItem(type, level, xmlItem.getTextContent());
+		if (slideItem == null) {
+			System.err.println(UNKNOWNTYPE);
+			return null;
+		}
+		return slideItem;
 	}
 
 	// loads a single slide item
+	protected void loadSlideItem(Slide slide, Element item) {
+		// set the default level to 1
+		int level = 1;
+
+		// check if the item has specified a level
+		NamedNodeMap attributes = item.getAttributes();
+		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
+		if (leveltext != null) {
+			// if so, try to parse it and set it as the level if it is valid
+			try {
+				level = Integer.parseInt(leveltext);
+			} catch(NumberFormatException x) {
+				System.err.println(NFE);
+			}
+		}
+
+		// Check if the item is wrapped
+		NodeList wrapList = item.getElementsByTagName("wrap");
+		if (wrapList.getLength() > 0) {
+			// If wrapped, apply decorators
+			Element wrapElement = (Element) wrapList.item(0);
+			String borderColor = wrapElement.getAttribute("borderColor");
+			String borderWidth = wrapElement.getAttribute("borderWidth");
+			String shadowColor = wrapElement.getAttribute("shadowColor");
+			String shadowThickness = wrapElement.getAttribute("shadowThickness");
+
+			SlideItem wrappedItem = null; // Initialize the wrapped item
+
+			// Apply border decorator if borderColor and borderWidth are provided
+			if (!borderColor.isEmpty() && !borderWidth.isEmpty()) {
+				wrappedItem = new BorderedItemDecorator(wrappedItem, Color.decode(borderColor));
+			}
+
+			// Apply shadow decorator if shadowColor and shadowThickness are provided
+			if (!shadowColor.isEmpty() && !shadowThickness.isEmpty()) {
+				ShadowedItemDecorator shadowDecorator = new ShadowedItemDecorator(wrappedItem, Color.decode(shadowColor), Integer.parseInt(shadowThickness));
+				// If the item is already decorated with a border, set the shadow decorator as its wrappee
+				if (wrappedItem != null) {
+					shadowDecorator.setWrappee(wrappedItem);
+				}
+				wrappedItem = shadowDecorator;
+			}
+
+			// Recursively process nested wrap elements
+			if (wrappedItem != null) {
+				// Get the nested item inside the wrap
+				Element nestedItem = (Element) wrapElement.getElementsByTagName("item").item(0);
+				// Load the nested item
+				loadSlideItem(slide, nestedItem);
+				// Append the wrapped item to the slide
+				slide.append(wrappedItem);
+			}
+		} else {
+			// If not wrapped, load the item normally
+			String type = attributes.getNamedItem(KIND).getTextContent();
+			SlideItem slideItem = SlideItemCreator.createSlideItem(type, level, item.getTextContent());
+			if (slideItem == null) {
+				System.err.println(UNKNOWNTYPE);
+			} else {
+				slide.append(slideItem);
+			}
+		}
+	}
+
+    /*
 	protected void loadSlideItem(Slide slide, Element item) {
 		// set the default level to 1
 		int level = 1;
@@ -125,6 +357,7 @@ public class XMLAccessor extends Accessor {
 			slide.append(slideItem);
 		}
 	}
+	 */
 
 	// save the presentation in a file
 	public void saveFile(Presentation presentation, String filename) throws IOException {
@@ -155,7 +388,7 @@ public class XMLAccessor extends Accessor {
 		Vector<SlideItem> slideItems = slide.getSlideItems();
 		// iterate over all slide items and save them
 		for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++) {
-			BaseSlideItem slideItem = (BaseSlideItem) slideItems.elementAt(itemNumber);
+			SlideItem slideItem = slideItems.elementAt(itemNumber);
 			saveSlideItem(out, slideItem);
 		}
 		out.println("</slide>");
@@ -166,7 +399,7 @@ public class XMLAccessor extends Accessor {
 	{
 		// Delegate the responsibility to the slide items
 		out.println(slideItem.toXML());
-		/*
+        /*
 		// heading
 		out.print("<item kind=");
 		// determine item type

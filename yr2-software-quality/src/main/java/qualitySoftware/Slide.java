@@ -45,6 +45,10 @@ public class Slide {
 		append(TextItemCreator.createSlideItem(level, message));
 	}
 
+	public void append(String type, int level, String content) {
+		append(SlideItemCreator.createSlideItem(type, level, content));
+	}
+
 	// give the  SlideItem
 	public SlideItem getSlideItem(int number) {
 		return (SlideItem)items.elementAt(number);

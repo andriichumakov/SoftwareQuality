@@ -17,6 +17,21 @@ public abstract class SlideItemDecorator implements SlideItem
         return this.wrappee.getLevel();
     }
 
+    public SlideItem getWrappee()
+    {
+        return this.wrappee;
+    }
+
+    public void setWrappee(SlideItem wrappee)
+    {
+        this.wrappee = wrappee;
+    }
+
+    public String formatColor(Color color)
+    {
+        return String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+    }
+
     @Override
     public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style style) {
         return this.wrappee.getBoundingBox(g, observer, scale, style);

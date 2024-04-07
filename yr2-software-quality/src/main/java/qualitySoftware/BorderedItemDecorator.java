@@ -46,7 +46,7 @@ public class BorderedItemDecorator extends SlideItemDecorator
 
     @Override
     public String toXML() {
-        return "<wrap kind=\"border\" color=" + this.getBorderColor().toString() + "\">" +
+        return "<wrap kind=\"border\" color=\"" + this.formatColor(this.getBorderColor()) + "\">" +
                 this.wrappee.toXML() + "</wrap>";
     }
 }
