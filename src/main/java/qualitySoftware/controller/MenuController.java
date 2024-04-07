@@ -1,4 +1,6 @@
-package main.java.qualitySoftware.ControllerManagement;
+package qualitySoftware.controller;
+
+import qualitySoftware.command.Command;
 
 import java.awt.MenuBar;
 import java.awt.Frame;
@@ -7,10 +9,7 @@ import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.util.HashMap;
-
-import javax.swing.JOptionPane;
 
 /**
  * <p>

@@ -1,4 +1,7 @@
-package main.java.qualitySoftware.ControllerManagement;
+package qualitySoftware.command;
+import qualitySoftware.controller.Presentation;
+import qualitySoftware.accessor.XMLAccessor;
+
 import javax.swing.*;
 import java.awt.Frame;
 import java.io.IOException;

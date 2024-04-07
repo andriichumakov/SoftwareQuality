@@ -1,4 +1,8 @@
-package qualitySoftware;
+package qualitySoftware.accessor;
+
+import qualitySoftware.slide.BitmapItem;
+import qualitySoftware.controller.Presentation;
+import qualitySoftware.slide.Slide;
 
 /** A built in demo-presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman

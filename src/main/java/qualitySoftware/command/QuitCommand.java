@@ -1,4 +1,4 @@
-package main.java.qualitySoftware.ControllerManagement;
+package qualitySoftware.command;
 
 public class QuitCommand implements Command
 {

@@ -1,4 +1,4 @@
-package main.java.qualitySoftware.ControllerManagement;
+package qualitySoftware.controller;
 
 import java.awt.Frame;
 import javax.swing.JOptionPane;

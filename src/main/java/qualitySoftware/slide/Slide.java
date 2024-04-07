@@ -1,4 +1,7 @@
-package qualitySoftware;
+package qualitySoftware.slide;
+
+import qualitySoftware.Style;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;

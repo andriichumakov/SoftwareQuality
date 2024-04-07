@@ -1,4 +1,7 @@
-package qualitySoftware;
+package qualitySoftware.controller;
+
+import qualitySoftware.command.*;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;

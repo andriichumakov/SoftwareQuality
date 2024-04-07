@@ -1,4 +1,6 @@
-package main.java.qualitySoftware.ControllerManagement;
+package qualitySoftware.command;
+
+import qualitySoftware.controller.Presentation;
 
 import java.awt.Frame;
 

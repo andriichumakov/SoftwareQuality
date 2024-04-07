@@ -1,4 +1,6 @@
-	package qualitySoftware;
+	package qualitySoftware.slide;
+
+import qualitySoftware.Style;
 
 import java.awt.Rectangle;
 import java.awt.Graphics;
@@ -15,7 +17,7 @@ import java.awt.image.ImageObserver;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-interface SlideItem {
+public interface SlideItem {
 
 // Give the bounding box
 	public abstract Rectangle getBoundingBox(Graphics g, 

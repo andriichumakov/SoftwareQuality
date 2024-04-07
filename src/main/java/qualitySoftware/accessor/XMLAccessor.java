@@ -1,4 +1,4 @@
-package qualitySoftware;
+package qualitySoftware.accessor;
 
 import java.util.Vector;
 import java.io.File;
@@ -15,6 +15,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
+import qualitySoftware.controller.Presentation;
+import qualitySoftware.slide.*;
 
 
 /** XMLAccessor, reads and writes XML files

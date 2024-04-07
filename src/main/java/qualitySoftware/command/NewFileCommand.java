@@ -1,7 +1,8 @@
-package main.java.qualitySoftware.ControllerManagement;
-import javax.swing.*;
+package qualitySoftware.command;
+
+import qualitySoftware.controller.Presentation;
+
 import java.awt.Frame;
-import java.io.IOException;
 
 public class NewFileCommand extends FrameCommand
 {
