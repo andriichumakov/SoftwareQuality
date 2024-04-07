@@ -19,7 +19,7 @@ public class OpenFileCommand extends FrameCommand
             targetFile = TESTFILE;
         }
         try {
-            xmlAccessor.loadFile(presentation, TESTFILE);
+            xmlAccessor.loadFile(presentation, targetFile);
             presentation.setSlideNumber(0);
         } catch (IOException exc) {
             JOptionPane.showMessageDialog(frame, IOEX + exc,

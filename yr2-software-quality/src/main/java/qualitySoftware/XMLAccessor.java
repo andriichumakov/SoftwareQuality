@@ -2,6 +2,7 @@ package qualitySoftware;
 
 import java.awt.*;
 import java.io.*;
+import java.util.Stack;
 import java.util.Vector;
 
 import javax.print.Doc;
@@ -85,41 +86,44 @@ public class XMLAccessor extends Accessor {
 
 	protected void loadSlide(Slide slide, Element xmlSlide) {
 		slide.setTitle(this.getTitle(xmlSlide, SLIDETITLE));
-
 		// Recursively traverse all descendant nodes of xmlSlide
 		loadSlideComponents(slide, xmlSlide.getChildNodes(), null);
 	}
 
-	protected void loadSlideComponents(Slide slide, NodeList nodeList, SlideItemDecorator lastWrapper) {
+	protected void loadSlideComponents(Slide slide, NodeList nodeList, SlideItemDecorator lastWrapper)
+	{
+		SlideItemDecorator lastEmptyWrapper = lastWrapper;
+
 		for (int index = 0; index < nodeList.getLength(); index++) {
 			Node node = nodeList.item(index);
-			if (node.getNodeType() == Node.ELEMENT_NODE) {
-				Element element = (Element) node;
-				String tagName = element.getTagName();
+			if (node.getNodeType() != Node.ELEMENT_NODE) {
+				continue;
+			}
+			Element element = (Element) node;
+			String tagName = element.getTagName();
 
-				if ("wrap".equals(tagName)) {
-					SlideItemDecorator wrapper = wrapperFromXML(element);
-					if (wrapper != null) {
-						if (lastWrapper != null) {
-							lastWrapper.setWrappee(wrapper);
-						}
-						lastWrapper = wrapper;
-					}
-				} else if ("item".equals(tagName)) {
-					SlideItem item = itemFromXML(element);
-					if (lastWrapper != null) {
-						lastWrapper.setWrappee(item);
-						lastWrapper = null;
-					} else {
-						slide.append(item);
-					}
+			if ("wrap".equals(tagName)) {
+				SlideItemDecorator emptyWrap = this.wrapperFromXML(element);
+				if (lastEmptyWrapper != null) {
+					lastEmptyWrapper.setWrappee(emptyWrap);
 				}
-
-				// Recursively process child nodes
-				loadSlideComponents(slide, element.getChildNodes(), lastWrapper);
+				lastEmptyWrapper = emptyWrap;
+				this.loadSlideComponents(slide, element.getChildNodes(), lastEmptyWrapper);
+				lastEmptyWrapper = null; // clear the wrapper, since wrapper will always have a text item in it, so it will always be bound to something
+			} else if ("item".equals(tagName)) {
+				SlideItem item = itemFromXML(element);
+				if (lastEmptyWrapper != null) {
+					lastEmptyWrapper.setWrappee(item);
+					slide.append(lastEmptyWrapper);
+					lastEmptyWrapper = null;
+				}
+				else {
+					slide.append(item);
+				}
 			}
 		}
 	}
+
 
 	// load the presentation file
 	/*
