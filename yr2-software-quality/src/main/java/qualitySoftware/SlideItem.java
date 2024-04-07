@@ -1,4 +1,4 @@
-	package qualitySoftware;
+package qualitySoftware;
 
 import java.awt.Rectangle;
 import java.awt.Graphics;

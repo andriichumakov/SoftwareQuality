@@ -1,3 +1,5 @@
+package qualitySoftware;
+
 import javax.swing.*;
 import java.awt.Frame;
 import java.io.IOException;

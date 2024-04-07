@@ -1,10 +1,7 @@
 package qualitySoftware;
 
+import java.io.*;
 import java.util.Vector;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.FileWriter;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -76,6 +73,8 @@ public class XMLAccessor extends Accessor {
 				presentation.append(slide);
 
 			}
+		} catch (FileNotFoundException exc) {
+			throw exc;
 		} catch (IOException iox) {
 			System.err.println(iox.toString());
 		} catch (SAXException sax) {
@@ -95,8 +94,8 @@ public class XMLAccessor extends Accessor {
 				Element item = (Element) slideItems.item(itemNumber);
 				loadSlideItem(slide, item);
 			}
-		} catch (Exception ex) {
-			throw ex;
+		} catch (Exception exc) {
+			throw exc;
 		}
 
 	}

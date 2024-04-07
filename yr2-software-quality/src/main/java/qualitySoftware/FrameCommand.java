@@ -10,6 +10,7 @@ public abstract class FrameCommand implements Command
     protected static final String IOEX = "IO Exception: ";
     protected static final String LOADERR = "Load Error";
     protected static final String SAVEERR = "Save Error";
+    protected static final String PAGENR = "Page number?";
     protected Frame frame;
     protected Presentation presentation;
     
