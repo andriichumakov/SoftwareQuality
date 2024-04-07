@@ -8,13 +8,13 @@ name: Lint Code Base
 
 on:
   push:
-    branches: [ "main", "development", "dev"]
+    branches: ["main", "development", "folderStructure", "dev"]
   pull_request:
-    branches: [ "main", "development", "dev",]
+    branches: ["main", "development", "folderStructure", "dev"]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: read
       packages: read
@@ -30,7 +30,7 @@ jobs:
           fetch-depth: 0
 
       - name: Super-linter
-        uses: super-linter/super-linter@v6.3.0  # x-release-please-version
+        uses: super-linter/super-linter@v6.3.0 # x-release-please-version
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
