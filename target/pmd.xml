@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2024-04-07T21:55:37.893">
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.38.0" timestamp="2024-04-07T22:13:29.881">
 <file name="C:\Users\hakan\Documents\GitHub\SoftwareQuality\src\main\java\qualitySoftware\JabberPoint.java">
 <violation beginline="1" endline="1" begincolumn="9" endcolumn="23" rule="PackageCase" ruleset="Code Style" package="qualitySoftware" class="JabberPoint" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
 Package name contains upper case characters
@@ -129,10 +129,7 @@ The method 'execute()' is missing an @Override annotation.
 <violation beginline="1" endline="1" begincolumn="9" endcolumn="31" rule="PackageCase" ruleset="Code Style" package="qualitySoftware.command" class="QuitCommand" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
 Package name contains upper case characters
 </violation>
-<violation beginline="3" endline="3" begincolumn="1" endcolumn="39" rule="UnnecessaryImport" ruleset="Code Style" package="qualitySoftware.command" class="QuitCommand" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#unnecessaryimport" priority="4">
-Unnecessary import from the current package 'qualitySoftware.command.Command'
-</violation>
-<violation beginline="7" endline="9" begincolumn="12" endcolumn="5" rule="MissingOverride" ruleset="Best Practices" package="qualitySoftware.command" class="QuitCommand" method="execute" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#missingoverride" priority="3">
+<violation beginline="5" endline="7" begincolumn="12" endcolumn="5" rule="MissingOverride" ruleset="Best Practices" package="qualitySoftware.command" class="QuitCommand" method="execute" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#missingoverride" priority="3">
 The method 'execute()' is missing an @Override annotation.
 </violation>
 </file>
@@ -204,14 +201,8 @@ The utility class name 'AboutBox' doesn't match '[A-Z][a-zA-Z0-9]+(Utils?|Helper
 <violation beginline="1" endline="1" begincolumn="9" endcolumn="36" rule="PackageCase" ruleset="Code Style" package="qualitySoftware.presentation" class="Presentation" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
 Package name contains upper case characters
 </violation>
-<violation beginline="24" endline="24" begincolumn="10" endcolumn="25" rule="LooseCoupling" ruleset="Best Practices" package="qualitySoftware.presentation" class="Presentation" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+<violation beginline="22" endline="22" begincolumn="10" endcolumn="25" rule="LooseCoupling" ruleset="Best Practices" package="qualitySoftware.presentation" class="Presentation" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
 Avoid using implementation types like 'ArrayList'; use the interface instead
-</violation>
-<violation beginline="34" endline="34" begincolumn="79" endcolumn="91" rule="UnusedFormalParameter" ruleset="Best Practices" package="qualitySoftware.presentation" class="Presentation" method="Presentation" variable="keyController" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
-Avoid unused constructor parameters such as 'keyController'.
-</violation>
-<violation beginline="34" endline="34" begincolumn="109" endcolumn="122" rule="UnusedFormalParameter" ruleset="Best Practices" package="qualitySoftware.presentation" class="Presentation" method="Presentation" variable="menuController" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#unusedformalparameter" priority="3">
-Avoid unused constructor parameters such as 'menuController'.
 </violation>
 </file>
 <file name="C:\Users\hakan\Documents\GitHub\SoftwareQuality\src\main\java\qualitySoftware\presentation\Slide.java">
@@ -319,13 +310,7 @@ The method 'keyPressed(KeyEvent)' is missing an @Override annotation.
 <violation beginline="1" endline="1" begincolumn="9" endcolumn="26" rule="PackageCase" ruleset="Code Style" package="qualitySoftware.ui" class="MenuController" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
 Package name contains upper case characters
 </violation>
-<violation beginline="30" endline="30" begincolumn="16" endcolumn="21" rule="UnusedPrivateField" ruleset="Best Practices" package="qualitySoftware.ui" class="MenuController" variable="parent" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
-Avoid unused private fields such as 'parent'.
-</violation>
-<violation beginline="31" endline="31" begincolumn="23" endcolumn="34" rule="UnusedPrivateField" ruleset="Best Practices" package="qualitySoftware.ui" class="MenuController" variable="presentation" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
-Avoid unused private fields such as 'presentation'.
-</violation>
-<violation beginline="55" endline="55" begincolumn="10" endcolumn="34" rule="LooseCoupling" ruleset="Best Practices" package="qualitySoftware.ui" class="MenuController" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+<violation beginline="50" endline="50" begincolumn="10" endcolumn="34" rule="LooseCoupling" ruleset="Best Practices" package="qualitySoftware.ui" class="MenuController" externalInfoUrl="https://pmd.github.io/pmd-6.38.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
 Avoid using implementation types like 'HashMap'; use the interface instead
 </violation>
 </file>
