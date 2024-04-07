@@ -1,5 +1,9 @@
 package qualitySoftware;
 
+import org.w3c.dom.Text;
+
+import java.awt.*;
+
 /** A built in demo-presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -48,6 +52,11 @@ class DemoPresentation extends Accessor {
 		slide.append(1, "This is the end of the presentation.");
 		slide.append(BitmapItemCreator.createSlideItem(1, "JabberPoint.gif"));
 		presentation.append(slide);
+
+		slide = new Slide();
+		slide.setTitle("The fourth slide");
+		slide.append(new ShadowedItemDecorator(TextItemCreator.createSlideItem(1, "This item has a shadow"), Color.DARK_GRAY, 3));
+		slide.append(new BorderedItemDecorator(TextItemCreator.createSlideItem(2, "This one has a border"), Color.YELLOW));
 	}
 
 	public void saveFile(Presentation presentation, String unusedFilename) {
