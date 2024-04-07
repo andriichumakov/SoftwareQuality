@@ -4,8 +4,92 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e3bd91c-03d0-4875-9ab5-b12718365daf" name="Changes" comment="">
+    <list default="true" id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/COPYRIGHT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/JabberPoint.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/jabberpoint.dtd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/logo-woordmerk_ou.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/JabberPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/accessor/Accessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/accessor/DemoPresentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/accessor/XMLAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/AboutBoxCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/FrameCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/GotoSlideCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/NewFileCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/NextSlideCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/OpenFileCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/PresentationCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/PreviousSlideCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/QuitCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/command/SaveFileCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/creator/BitmapItemCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/creator/SlideItemCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/creator/TextItemCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/decorator/BorderedItemDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/decorator/ShadowedItemDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/decorator/SlideItemDecorator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/presentation/AboutBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/presentation/Presentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/presentation/Slide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/presentation/Style.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/slide/BaseSlideItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/slide/BitmapItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/slide/SlideItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/slide/TextItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/ui/KeyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/ui/MenuController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/ui/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/ui/SlideViewerComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/ui/SlideViewerFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/production/yr2-software-quality/qualitySoftware/ui/SlideViewerFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/out/test/yr2-software-quality/DemoPresentationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/serclogo_fc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/JabberPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/accessor/Accessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/accessor/DemoPresentation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/accessor/XMLAccessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/AboutBoxCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/FrameCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/GotoSlideCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/NewFileCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/NextSlideCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/OpenFileCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/PresentationCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/PreviousSlideCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/QuitCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/command/SaveFileCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/creator/BitmapItemCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/creator/SlideItemCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/creator/TextItemCreator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/decorator/BorderedItemDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/decorator/ShadowedItemDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/decorator/SlideItemDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/presentation/AboutBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/presentation/Presentation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/presentation/Slide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/presentation/Style.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/slide/BaseSlideItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/slide/BitmapItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/slide/SlideItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/slide/TextItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/ui/KeyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/ui/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/ui/SlideViewerComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/main/java/qualitySoftware/ui/SlideViewerFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/src/test/DemoPresentationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yr2-software-quality/yr2-software-quality.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +107,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2emUEBdNVDIv2T2ulSxTIvETYG0" />
+  <component name="ProjectId" id="2emek7NIVmR3D9bSXoySvy0Cg9l" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -36,38 +119,60 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in JabberPoint.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in yr2-software-quality.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/hakan/Documents/GitHub/SoftwareQuality/yr2-software-quality/src/test&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/hakan/Documents/GitHub/SoftwareQuality&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="qualitySoftware.decorator" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="SoftwareQuality" />
+  <component name="RunManager" selected="Application.JabberPoint">
+    <configuration name="JabberPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="qualitySoftware.JabberPoint" />
+      <module name="JabberPoint" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="qualitySoftware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="SoftwareQuality" />
-      <option name="filePath" />
+    <configuration name="All in JabberPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JabberPoint" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.JabberPoint" />
+        <item itemvalue="JUnit.All in JabberPoint" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -80,17 +185,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8e3bd91c-03d0-4875-9ab5-b12718365daf" name="Changes" comment="" />
-      <created>1712509133425</created>
+      <changelist id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="" />
+      <created>1712514320975</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712509133425</updated>
-      <workItem from="1712509134019" duration="3745000" />
-      <workItem from="1712514195267" duration="13000" />
-      <workItem from="1712514209677" duration="13000" />
-      <workItem from="1712514225269" duration="5000" />
-      <workItem from="1712514253776" duration="15000" />
-      <workItem from="1712514270578" duration="13000" />
+      <updated>1712514320975</updated>
+      <workItem from="1712514321772" duration="4972000" />
+      <workItem from="1712519829736" duration="40000" />
     </task>
     <servers />
   </component>
