@@ -30,7 +30,7 @@ public class JabberPoint {
 	protected static final String JABERR = "Jabberpoint Error ";
 	protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
 
-	/** Het Main Programma */
+	/** The main program */
 	public static void main(String argv[]) {
 		
 		Style.createStyles();
