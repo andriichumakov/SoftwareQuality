@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://www.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
+            <artifactId>mockito-inline</artifactId>
             <version>3.10.0</version>
             <scope>test</scope>
         </dependency>
@@ -42,6 +42,12 @@
             <groupId>org.powermock</groupId>
             <artifactId>powermock-api-mockito2</artifactId>
             <version>2.0.9</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <version>3.10.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -164,10 +170,8 @@
                 <artifactId>formatter-maven-plugin</artifactId>
                 <version>2.22.0</version>
                 <configuration>
-                    <configFile>
-                        ${project.basedir}/src/main/resources/formatter-maven-plugin/eclipse/java.xml</configFile>
-                    <configJsFile>
-                        ${project.basedir}/src/main/resources/formatter-maven-plugin/eclipse/javascript.xml</configJsFile>
+                    <configFile>${project.basedir}/src/main/resources/formatter-maven-plugin/eclipse/java.xml</configFile>
+                    <configJsFile>${project.basedir}/src/main/resources/formatter-maven-plugin/eclipse/javascript.xml</configJsFile>
                     <sourceDirectory>${project.basedir}</sourceDirectory>
                     <excludes>
                         <exclude>**/src/test/resources/**</exclude>
@@ -181,6 +185,7 @@
                     <skipXmlFormatting>true</skipXmlFormatting>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -193,7 +198,6 @@
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
@@ -202,5 +206,4 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 </project>
