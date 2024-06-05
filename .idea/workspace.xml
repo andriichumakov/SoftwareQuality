@@ -6,13 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/accessor/XMLAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/accessor/XMLAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/command/GotoSlideCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/command/GotoSlideCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/GotoSlideCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GotoSlideCommandTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/JabberPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/JabberPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/command/GotoSlideCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/command/GotoSlideCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/command/QuitCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/command/QuitCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/AboutBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/AboutBox.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/TextItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/TextItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/ui/SlideViewerFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GotoSlideCommandTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GotoSlideCommandTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +55,14 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in JabberPoint.executor": "Run",
     "JUnit.All in yr2-software-quality.executor": "Run",
+    "JUnit.DemoPresentationTest.executor": "Run",
     "JUnit.GotoSlideCommandTest.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "test",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/hakan/Documents/GitHub/SoftwareQuality/yr2-software-quality/src/test",
@@ -92,6 +102,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DemoPresentationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JabberPoint" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DemoPresentationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GotoSlideCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="JabberPoint" />
       <option name="PACKAGE_NAME" value="" />
@@ -104,8 +123,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GotoSlideCommandTest" />
-        <item itemvalue="Application.JabberPoint" />
+        <item itemvalue="JUnit.DemoPresentationTest" />
         <item itemvalue="JUnit.All in JabberPoint" />
+        <item itemvalue="Application.JabberPoint" />
       </list>
     </recent_temporary>
   </component>
@@ -128,6 +148,7 @@
       <workItem from="1712514321772" duration="4972000" />
       <workItem from="1712519829736" duration="40000" />
       <workItem from="1712519911034" duration="1890000" />
+      <workItem from="1717595532781" duration="1654000" />
     </task>
     <servers />
   </component>

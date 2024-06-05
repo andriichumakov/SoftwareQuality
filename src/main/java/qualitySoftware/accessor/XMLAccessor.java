@@ -35,7 +35,7 @@ public class XMLAccessor extends Accessor
 	/** Default API to use. */
     protected static final String DEFAULT_API_TO_USE = "dom";
     
-    /** namen van xml tags of attributen */
+    /** Names of the XML attributes */
     protected static final String SHOWTITLE = "showtitle";
     protected static final String SLIDETITLE = "title";
     protected static final String SLIDE = "slide";
