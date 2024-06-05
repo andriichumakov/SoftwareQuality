@@ -9,12 +9,6 @@
 /dataSources/
 /dataSources.local.xml
 
-# Recompiled class files
-/target/classes/
-
-# Ignore IntelliJ IDEA project files
-.idea/
-
 # Ignore compiled class files
 *.class
 
@@ -27,3 +21,6 @@
 # Ignore temporary files
 *.tmp
 *.swp
+
+# Ignore IntelliJ IDEA project files
+.idea/

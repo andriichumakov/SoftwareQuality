@@ -6,17 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="0c77c50e-02a4-4b6b-93c7-4c17a553d149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/presentation/Slide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/presentation/Slide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/presentation/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/presentation/Style.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/BaseSlideItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/BaseSlideItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/BitmapItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/BitmapItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/SlideItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/SlideItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/TextItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/qualitySoftware/slide/TextItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Slide.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Slide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/DemoPresentationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/GotoSlideCommandTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/accessor/XMLAccessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/accessor/XMLAccessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/decorator/BorderedItemDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/decorator/BorderedItemDecorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/decorator/ShadowedItemDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/decorator/ShadowedItemDecorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/decorator/SlideItemDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/decorator/SlideItemDecorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Presentation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Style.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/presentation/Style.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/BaseSlideItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/BaseSlideItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/BitmapItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/BitmapItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/TextItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/qualitySoftware/slide/TextItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/DemoPresentationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GotoSlideCommandTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +36,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
+    &quot;associatedIndex&quot;: 2
+    }</component>
   <component name="ProjectId" id="2emek7NIVmR3D9bSXoySvy0Cg9l" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -52,12 +54,13 @@
     &quot;JUnit.All in yr2-software-quality.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.DemoPresentationTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.GotoSlideCommandTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.test in JabberPoint.executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;test&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/hakan/Documents/GitHub/SoftwareQuality/yr2-software-quality/src/test&quot;,
@@ -73,7 +76,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.JabberPoint">
+  <component name="RunManager" selected="JUnit.test in JabberPoint">
     <configuration name="JabberPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="qualitySoftware.JabberPoint" />
       <module name="JabberPoint" />
@@ -115,8 +118,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test in JabberPoint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="JabberPoint" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test in JabberPoint" />
         <item itemvalue="Application.JabberPoint" />
         <item itemvalue="JUnit.GotoSlideCommandTest" />
         <item itemvalue="JUnit.DemoPresentationTest" />
