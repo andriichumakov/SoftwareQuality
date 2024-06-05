@@ -2,23 +2,25 @@ package qualitySoftware.decorator;
 
 import qualitySoftware.presentation.Style;
 import qualitySoftware.slide.SlideItem;
-import java.awt.*;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 
 /**
- * SlideItemDecorator is an abstract class that serves as a base for all
- * decorators
- * that enhance the functionality of SlideItem objects by adding additional
- * features.
+ * SlideItemDecorator is an abstract class that serves as a base for all decorators
+ * that enhance the functionality of SlideItem objects by adding additional features.
  */
-
 public abstract class SlideItemDecorator implements SlideItem {
-
     // The SlideItem that this decorator wraps around
     protected SlideItem wrappee;
 
     // Constructor that accepts a SlideItem to be wrapped
     public SlideItemDecorator(SlideItem wrappee) {
+        if (wrappee == null) {
+            throw new IllegalArgumentException("Wrappee cannot be null");
+        }
         this.wrappee = wrappee;
     }
 
@@ -30,11 +32,17 @@ public abstract class SlideItemDecorator implements SlideItem {
 
     // Setter to change the wrapped SlideItem
     public void setWrappee(SlideItem wrappee) {
+        if (wrappee == null) {
+            throw new IllegalArgumentException("Wrappee cannot be null");
+        }
         this.wrappee = wrappee;
     }
 
     // Format a Color object to a hex string
     public String formatColor(Color color) {
+        if (color == null) {
+            throw new IllegalArgumentException("Color cannot be null");
+        }
         return String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
     }
 
@@ -50,7 +58,6 @@ public abstract class SlideItemDecorator implements SlideItem {
         this.wrappee.draw(x, y, scale, g, style, observer);
     }
 
-    // Convert the decorator and its wrappee to XML format; to be implemented by
-    // subclasses
+    // Convert the decorator and its wrappee to XML format; to be implemented by subclasses
     public abstract String toXML();
 }
