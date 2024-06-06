@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - cloud-deployment
 
 jobs:
   deploy:
@@ -11,12 +12,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v1
         with:
-          version: 'latest'
+          version: "latest"
           project_id: ${{ secrets.GCP_PROJECT }}
           service_account_key: ${{ secrets.GCP_SA_KEY }}
 
