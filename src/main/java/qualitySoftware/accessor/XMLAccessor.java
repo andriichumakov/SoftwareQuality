@@ -6,6 +6,7 @@ import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import qualitySoftware.creator.SlideItemCreator;
@@ -14,7 +15,9 @@ import qualitySoftware.decorator.ShadowedItemDecorator;
 import qualitySoftware.decorator.SlideItemDecorator;
 import qualitySoftware.presentation.Presentation;
 import qualitySoftware.presentation.Slide;
+import qualitySoftware.slide.BitmapItem;
 import qualitySoftware.slide.SlideItem;
+import qualitySoftware.slide.TextItem;
 
 /**
  * XMLAccessor class handles reading and writing of XML files for presentations.
@@ -22,7 +25,6 @@ import qualitySoftware.slide.SlideItem;
  * Various versions indicate iterative improvements over the years.
  */
 public class XMLAccessor extends Accessor {
-
 	/** Default API to use for parsing XML */
 	protected static final String DEFAULT_API_TO_USE = "dom";
 
@@ -42,7 +44,7 @@ public class XMLAccessor extends Accessor {
 	protected static final String NFE = "Number Format Exception";
 
 	// Retrieve the title of an element given a tag name
-	private String getTitle(Element element, String tagName) {
+	protected String getTitle(Element element, String tagName) {
 		NodeList titles = element.getElementsByTagName(tagName);
 		return titles.item(0).getTextContent();
 	}
@@ -203,6 +205,25 @@ public class XMLAccessor extends Accessor {
 
 	// Save a single slide item (to be implemented)
 	protected void saveSlideItem(PrintWriter out, SlideItem slideItem) {
-		//TODO make sure to implement the save
+		int level = slideItem.getLevel();
+		if (slideItem instanceof TextItem) {
+			out.println("<item kind=\"" + TEXT + "\" level=\"" + level + "\">");
+			out.print(((TextItem) slideItem).getText());
+		} else if (slideItem instanceof BitmapItem) {
+			out.println("<item kind=\"" + IMAGE + "\" level=\"" + level + "\">");
+			out.print(((BitmapItem) slideItem).getName());
+		}
+		out.println("</item>");
+	}
+
+	// Create a new DocumentBuilder instance
+	public DocumentBuilder newDocumentBuilder() {
+		try {
+			return DocumentBuilderFactory.newInstance().newDocumentBuilder();
+		} catch (ParserConfigurationException e) {
+			System.err.println(PCE);
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

@@ -1,11 +1,9 @@
 package qualitySoftware.command;
 
 import qualitySoftware.presentation.Presentation;
-
 import java.awt.Frame;
 
-public abstract class FrameCommand implements Command
-{
+public abstract class FrameCommand implements Command {
     protected final static String FILENAME = "Filename?";
     protected static final String TESTFILE = "test.xml";
     protected static final String SAVEFILE = "dump.xml";
@@ -15,10 +13,19 @@ public abstract class FrameCommand implements Command
     public static final String PAGENR = "Page number?";
     protected Frame frame;
     protected Presentation presentation;
-    
+
     public FrameCommand(Frame frame, Presentation presentation) {
         this.frame = frame;
         this.presentation = presentation;
     }
+
+    public Frame getFrame() {
+        return frame;
+    }
+
+    public Presentation getPresentation() {
+        return presentation;
+    }
+
     public abstract void execute();
 }

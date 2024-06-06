@@ -3,6 +3,7 @@ package qualitySoftware.command;
 import qualitySoftware.presentation.Presentation;
 import qualitySoftware.accessor.Accessor;
 import qualitySoftware.accessor.XMLAccessor;
+import qualitySoftware.presentation.Presentation;
 
 import javax.swing.*;
 import java.awt.Frame;
