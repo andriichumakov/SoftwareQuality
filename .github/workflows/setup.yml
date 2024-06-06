@@ -2,9 +2,9 @@ name: Publish Release
 
 on:
   push:
-    branches:
-      - main
-      - cloud-deployment
+    branches: ["main", "cloud-development"]
+  pull_request:
+    branches: ["main", "cloud-development"]
 
 jobs:
   build_and_release:
@@ -29,6 +29,22 @@ jobs:
           VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "VERSION is $VERSION"
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1.1.0
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v1.1.0
+        with:
+          project_id: ${{ secrets.GCP_PROJECT }}
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       - name: Create GitHub Release
         id: create_release

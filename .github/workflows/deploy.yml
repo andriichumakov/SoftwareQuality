@@ -2,9 +2,9 @@ name: Deploy to Cloud Run
 
 on:
   push:
-    branches:
-      - main
-      - cloud-deployment
+    branches: ["main", "cloud-development"]
+  pull_request:
+    branches: ["main", "cloud-development"]
 
 jobs:
   deploy:
