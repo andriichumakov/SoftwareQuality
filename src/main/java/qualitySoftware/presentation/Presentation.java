@@ -2,6 +2,7 @@ package qualitySoftware.presentation;
 
 import qualitySoftware.ui.SlideViewerComponent;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 
@@ -103,5 +104,13 @@ public class Presentation {
 
 	public void exit(int n) {
 		System.exit(n);
+	}
+
+	public String getStrDialogInput(String message) {
+		return JOptionPane.showInputDialog(message);
+	}
+
+	public int getIntDialogInput(String message) {
+		return Integer.parseInt(this.getStrDialogInput(message));
 	}
 }

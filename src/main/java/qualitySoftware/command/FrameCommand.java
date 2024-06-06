@@ -17,8 +17,8 @@ public abstract class FrameCommand implements Command
     protected Presentation presentation;
     
     public FrameCommand(Frame frame, Presentation presentation) {
-        this.frame = frame;
         this.presentation = presentation;
+        this.frame = frame;
     }
     public abstract void execute();
 }

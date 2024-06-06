@@ -2,6 +2,7 @@ package qualitySoftware.ui;
 
 import qualitySoftware.command.Command;
 
+import javax.swing.*;
 import java.awt.MenuBar;
 import java.awt.Menu;
 import java.awt.MenuItem;
@@ -14,8 +15,7 @@ import java.util.HashMap;
  * <p>
  * The controller for the menu
  * </p>
- * 
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
+ *
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
  * @version 1.3 2004/08/17 Sylvia Stuurman
@@ -48,9 +48,11 @@ public class MenuController extends MenuBar {
 	protected static final String SAVEERR = "Save Error";
 
 	private HashMap<String, MenuItem> menuItems; // used to look up menu items based on their name to bind commands
+	private HashMap<String, Command> commands; // map menu item names to their command bindings
 
 	public MenuController() {
 		this.menuItems = new HashMap<>();
+		this.commands = new HashMap<>();
 		this.addFileMenu();
 		this.addViewMenu();
 		this.addHelpMenu();
@@ -83,17 +85,29 @@ public class MenuController extends MenuBar {
 	// create a menu item
 	public MenuItem mkMenuItem(String name) {
 		MenuItem menuItem = new MenuItem(name, new MenuShortcut(name.charAt(0)));
+		menuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				executeCommand(name);
+			}
+		});
 		this.menuItems.put(name, menuItem);
 		return menuItem;
 	}
 
-	public void bindMenuItem(MenuItem menuItem, Command command) {
-		menuItem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				command.execute();
-			}
-		});
+	public void addCommand(String name, Command command) {
+		this.commands.put(name, command);
+	}
+
+	public void removeCommand(String name) {
+		this.commands.remove(name);
+	}
+
+	public void executeCommand(String name) {
+		Command command = this.commands.get(name);
+		if (command != null) {
+			command.execute();
+		}
 	}
 
 	public MenuItem getMenuItem(String name) {
@@ -103,7 +117,8 @@ public class MenuController extends MenuBar {
 	public void bindMenuItem(String name, Command command) {
 		MenuItem menuItem = this.getMenuItem(name);
 		if (menuItem != null) {
-			this.bindMenuItem(menuItem, command);
+			this.addCommand(name, command);
+			//this.bindMenuItem(menuItem, command);
 		}
 	}
 }

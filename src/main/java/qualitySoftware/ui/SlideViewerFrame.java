@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * <p>The application window for a slideviewcomponent</p>
@@ -20,7 +20,8 @@ import javax.swing.JFrame;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-public class SlideViewerFrame extends JFrame {
+public class
+SlideViewerFrame extends JFrame {
 	private static final long serialVersionUID = 3227L;
 	
 	private static final String JABTITLE = "Jabberpoint 1.6 - OU";
@@ -34,31 +35,11 @@ public class SlideViewerFrame extends JFrame {
 		super(title);
 		this.menuController = menuController;
 		this.keyController = keyController;
-		this.setupKeyController(presentation);
+		this.keyController.setup(presentation);
 		this.setupMenuController(presentation);
 		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
 		presentation.setShowView(slideViewerComponent);
 		setupWindow(slideViewerComponent, presentation);
-	}
-
-	private void setupKeyController(Presentation presentation) {
-		// responsible for ensuring that the key controller knows which commands to expect
-		// if there are any new presentation-related keyboard commands, put them here
-		NextSlideCommand next = new NextSlideCommand(presentation);
-		PreviousSlideCommand prev =  new PreviousSlideCommand(presentation);
-		QuitCommand quit = new QuitCommand();
-		// Next Slide shortcuts
-		keyController.addCommand(KeyEvent.VK_DOWN, next);
-		keyController.addCommand(KeyEvent.VK_PAGE_DOWN, next);
-		keyController.addCommand(KeyEvent.VK_ENTER, next);
-		keyController.addCommand('+', next);
-		// Previous slide shortcuts
-		keyController.addCommand(KeyEvent.VK_UP, prev);
-		keyController.addCommand(KeyEvent.VK_PAGE_UP, prev);
-		keyController.addCommand('-', prev);
-		// Quit Command shortcuts
-		keyController.addCommand('q', quit);
-		keyController.addCommand('Q', quit);
 	}
 
 	private void setupMenuController(Presentation presentation) {
@@ -66,7 +47,7 @@ public class SlideViewerFrame extends JFrame {
 		OpenFileCommand openFile = new OpenFileCommand(this, presentation);
 		NewFileCommand newFile = new NewFileCommand(this, presentation);
 		SaveFileCommand saveFile = new SaveFileCommand(this, presentation);
-		QuitCommand quit = new QuitCommand();
+		QuitCommand quit = new QuitCommand(presentation);
 		NextSlideCommand nextSlide = new NextSlideCommand(presentation);
 		PreviousSlideCommand prevSlide = new PreviousSlideCommand(presentation);
 		GotoSlideCommand gotoSlide = new GotoSlideCommand(this, presentation);
@@ -88,13 +69,13 @@ public class SlideViewerFrame extends JFrame {
 			slideViewerComponent, Presentation presentation) {
 		setTitle(JABTITLE);
 		addWindowListener(new WindowAdapter() {
-				public void windowClosing(WindowEvent e) {
-					System.exit(0);
-				}
-			});
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
 		getContentPane().add(slideViewerComponent);
 		addKeyListener(this.keyController); // add a controller
-		setMenuBar(this.menuController);	// add another controller
+		setMenuBar(this.menuController);    // add another controller
 		setSize(new Dimension(WIDTH, HEIGHT)); // Same sizes as Slide has.
 		setVisible(true);
 	}

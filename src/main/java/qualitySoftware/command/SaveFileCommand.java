@@ -15,7 +15,6 @@ public class SaveFileCommand extends FrameCommand
     }
 
     public void execute() {
-        // clear everything
         Accessor xmlAccessor = new XMLAccessor();
         String targetFile = JOptionPane.showInputDialog((Object) FILENAME);
         if (targetFile == null || targetFile.trim().isEmpty()) { // if no file is specified, open the test file (test.xml)

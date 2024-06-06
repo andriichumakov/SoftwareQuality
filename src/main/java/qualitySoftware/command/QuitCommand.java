@@ -1,8 +1,14 @@
 package qualitySoftware.command;
 
-public class QuitCommand implements Command
+import qualitySoftware.presentation.Presentation;
+
+public class QuitCommand extends PresentationCommand
 {
+    public QuitCommand(Presentation presentation) {
+        super(presentation);
+    }
+
     public void execute() {
-        System.exit(0);
+        presentation.exit(0);
     }
 }
