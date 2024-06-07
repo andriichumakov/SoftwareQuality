@@ -1,12 +1,7 @@
 package qualitySoftware.command;
 
 import qualitySoftware.presentation.Presentation;
-import qualitySoftware.accessor.Accessor;
-import qualitySoftware.accessor.XMLAccessor;
-
-import javax.swing.*;
-import java.awt.Frame;
-import java.io.IOException;
+import qualitySoftware.ui.SlideViewerFrame;
 
 public class SaveFileCommand extends FrameCommand
 {
