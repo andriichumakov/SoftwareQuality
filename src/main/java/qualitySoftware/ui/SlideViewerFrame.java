@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * The application window for a slide view component.
@@ -22,7 +22,8 @@ import javax.swing.JFrame;
  * @autor Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  */
 
-public class SlideViewerFrame extends JFrame {
+public class
+SlideViewerFrame extends JFrame {
 	private static final long serialVersionUID = 3227L;
 
 	private static final String JABTITLE = "Jabberpoint 1.6 - OU";
@@ -42,50 +43,19 @@ public class SlideViewerFrame extends JFrame {
 		super(title);
 		this.menuController = menuController;
 		this.keyController = keyController;
-		this.setupKeyController(presentation);
+		this.keyController.setup(presentation);
 		this.setupMenuController(presentation);
 		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
 		presentation.setShowView(slideViewerComponent);
 		setupWindow(slideViewerComponent, presentation);
 	}
 
-	/**
-	 * Setup the key controller with commands.
-	 * Associates keyboard shortcuts with their corresponding actions in the
-	 * presentation.
-	 */
-	private void setupKeyController(Presentation presentation) {
-		// Commands for navigating and controlling the presentation
-		NextSlideCommand next = new NextSlideCommand(presentation);
-		PreviousSlideCommand prev = new PreviousSlideCommand(presentation);
-		QuitCommand quit = new QuitCommand();
-
-		// Next Slide shortcuts
-		keyController.addCommand(KeyEvent.VK_DOWN, next);
-		keyController.addCommand(KeyEvent.VK_PAGE_DOWN, next);
-		keyController.addCommand(KeyEvent.VK_ENTER, next);
-		keyController.addCommand('+', next);
-
-		// Previous Slide shortcuts
-		keyController.addCommand(KeyEvent.VK_UP, prev);
-		keyController.addCommand(KeyEvent.VK_PAGE_UP, prev);
-		keyController.addCommand('-', prev);
-
-		// Quit Command shortcuts
-		keyController.addCommand('q', quit);
-		keyController.addCommand('Q', quit);
-	}
-
-	/**
-	 * Setup the menu controller with commands.
-	 * Binds menu items to their corresponding actions in the presentation.
-	 */
 	private void setupMenuController(Presentation presentation) {
 		// Commands for various menu actions
 		OpenFileCommand openFile = new OpenFileCommand(this, presentation);
 		NewFileCommand newFile = new NewFileCommand(this, presentation);
 		SaveFileCommand saveFile = new SaveFileCommand(this, presentation);
-		QuitCommand quit = new QuitCommand();
+		QuitCommand quit = new QuitCommand(presentation);
 		NextSlideCommand nextSlide = new NextSlideCommand(presentation);
 		PreviousSlideCommand prevSlide = new PreviousSlideCommand(presentation);
 		GotoSlideCommand gotoSlide = new GotoSlideCommand(this, presentation);
@@ -113,10 +83,18 @@ public class SlideViewerFrame extends JFrame {
 				System.exit(0);
 			}
 		});
-		getContentPane().add(slideViewerComponent); // Add slide viewer component to the content pane
-		addKeyListener(this.keyController); // Add key controller to handle keyboard shortcuts
-		setMenuBar(this.menuController); // Set menu bar with menu controller
-		setSize(new Dimension(WIDTH, HEIGHT)); // Set window size
-		setVisible(true); // Make the window visible
+		getContentPane().add(slideViewerComponent);
+		addKeyListener(this.keyController); // add a controller
+		setMenuBar(this.menuController);    // add another controller
+		setSize(new Dimension(WIDTH, HEIGHT)); // Same sizes as Slide has.
+		setVisible(true);
+	}
+
+	public String getStrDialogInput(String message) {
+		return JOptionPane.showInputDialog(message);
+	}
+
+	public int getIntDialogInput(String message) {
+		return Integer.parseInt(this.getStrDialogInput(message));
 	}
 }

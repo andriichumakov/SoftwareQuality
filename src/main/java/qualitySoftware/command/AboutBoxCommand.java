@@ -2,12 +2,13 @@ package qualitySoftware.command;
 
 import qualitySoftware.presentation.AboutBox;
 import qualitySoftware.presentation.Presentation;
+import qualitySoftware.ui.SlideViewerFrame;
 
 import java.awt.Frame;
 
 public class AboutBoxCommand extends FrameCommand
 {
-    public AboutBoxCommand(Frame frame, Presentation presentation) {
+    public AboutBoxCommand(SlideViewerFrame frame, Presentation presentation) {
         super(frame, presentation);
     }
 
