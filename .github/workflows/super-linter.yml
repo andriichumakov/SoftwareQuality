@@ -22,6 +22,7 @@ jobs:
         with:
           fetch-depth: 0
 
+      # If there are any issues with the code according to the linter the workflow will return as failed
       - name: Run Super-linter
         uses: github/super-linter@v6
         env:
