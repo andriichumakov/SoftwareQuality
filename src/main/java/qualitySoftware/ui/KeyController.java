@@ -27,25 +27,6 @@ public class KeyController extends KeyAdapter {
 		this.commands = new HashMap<>();
 	}
 
-	public void setup(Presentation presentation) {
-		// responsible for ensuring that the key controller knows which commands to expect
-		// if there are any new presentation-related keyboard commands, put them here
-		NextSlideCommand next = new NextSlideCommand(presentation);
-		PreviousSlideCommand prev =  new PreviousSlideCommand(presentation);
-		QuitCommand quit = new QuitCommand(presentation);
-		// Next Slide shortcuts
-		this.addCommand(KeyEvent.VK_DOWN, next);
-		this.addCommand(KeyEvent.VK_PAGE_DOWN, next);
-		this.addCommand(KeyEvent.VK_ENTER, next);
-		this.addCommand( KeyEvent.VK_PLUS, next);
-		// Previous slide shortcuts
-		this.addCommand(KeyEvent.VK_UP, prev);
-		this.addCommand(KeyEvent.VK_PAGE_UP, prev);
-		this.addCommand(KeyEvent.VK_MINUS, prev);
-		// Quit Command shortcuts
-		this.addCommand(KeyEvent.VK_Q, quit);
-	}
-
 	public void addCommand(Integer keyCode, Command command) {
 		if (!this.commands.containsKey(keyCode)) {
 			this.commands.put(keyCode, command);
