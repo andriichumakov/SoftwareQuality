@@ -18,7 +18,7 @@ import java.io.IOException;
  * This program is distributed under the terms of the accompanying
  * COPYRIGHT.txt file (which is NOT the GNU General Public License).
  * Please read it. Your use of the software constitutes acceptance
- * of the terms in the COPYRIGHT.txt file.
+ * of the terms in the COPYRIGHT.txt file.-
  * 
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman
