@@ -16,6 +16,12 @@ jobs:
       - name: Log recent commit
         run: git log -1
 
+      - name: Build project
+        run: mvn clean package
+
+      - name: List target directory contents
+        run: ls -la target
+
       - id: 'auth'
         uses: 'google-github-actions/auth@v2'
         with:
