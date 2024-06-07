@@ -2,9 +2,9 @@ name: acceptance upload jar to gcloud
 
 on:
   push:
-    branches: ["main", "cloud-development"]
+    branches: ["main", "dev"]
   pull_request:
-    branches: ["main", "cloud-development"]
+    branches: ["main", "dev"]
 
 jobs:
   build_and_release:

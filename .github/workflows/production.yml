@@ -2,9 +2,9 @@ name: Published Release for github
 
 on:
   push:
-    branches: ["main", "cloud-development"]
+    branches: ["main"]
   pull_request:
-    branches: ["main", "cloud-development"]
+    branches: ["main"]
 
 jobs:
   build_and_release:
