@@ -9,6 +9,7 @@ import qualitySoftware.ui.MenuController;
 import qualitySoftware.ui.SlideViewerFrame;
 
 import javax.swing.JOptionPane;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -43,23 +44,21 @@ public class JabberPoint {
         Style.createStyles();
 
         Presentation presentation = new Presentation();
-
-        // Create and set up the main application window
         new SlideViewerFrame(JABVERSION, presentation, new MenuController(), new KeyController());
 
         try {
-            if (argv.length == 0) {
-                // Load a demo presentation if no file is specified
-                Accessor.getDemoAccessor().loadFile(presentation, "");
-            } else {
-                // Load the specified presentation file
-                new XMLAccessor().loadFile(presentation, argv[0]);
-            }
-
-            presentation.setSlideNumber(0);
+            loadPresentation(argv, presentation);
         } catch (IOException ex) {
-            // Show an error message if there is an IO error
             JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    public static void loadPresentation(String[] argv, Presentation presentation) throws IOException {
+        if (argv.length == 0) {
+            Accessor.getDemoAccessor().loadFile(presentation, "");
+        } else {
+            new XMLAccessor().loadFile(presentation, argv[0]);
+        }
+        presentation.setSlideNumber(0);
     }
 }
