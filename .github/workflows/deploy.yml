@@ -32,11 +32,11 @@ jobs:
           java-version: '11'
 
       - name: Build JAR file
-        run: ./gradlew build
+        run: mvn clean package
 
       - name: Upload JAR to Google Cloud Storage
         run: |
-          gsutil cp build/libs/myapp.jar gs://$GCP_BUCKET/myapp.jar
+          gsutil cp target/*.jar gs://$GCP_BUCKET/
 
       - name: Deploy to Cloud Run
         run: |
