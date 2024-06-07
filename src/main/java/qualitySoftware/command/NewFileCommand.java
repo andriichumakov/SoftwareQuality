@@ -5,12 +5,13 @@ import qualitySoftware.ui.SlideViewerFrame;
 
 import java.awt.Frame;
 
-public class NewFileCommand extends FrameCommand
-{
+public class NewFileCommand extends FrameCommand {
+
     public NewFileCommand(SlideViewerFrame frame, Presentation presentation) {
         super(frame, presentation);
     }
 
+    @Override
     public void execute() {
         this.presentation.newFile(frame);
     }
