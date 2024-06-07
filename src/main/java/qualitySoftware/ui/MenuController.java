@@ -94,6 +94,9 @@ public class MenuController extends MenuBar {
 
 	public void addCommand(String name, Command command) {
 		this.commands.put(name, command);
+		if (!this.menuItems.containsKey(name)) {
+			this.mkMenuItem(name);
+		}
 	}
 
 	public void removeCommand(String name) {
@@ -109,12 +112,5 @@ public class MenuController extends MenuBar {
 
 	public MenuItem getMenuItem(String name) {
 		return menuItems.getOrDefault(name, null);
-	}
-
-	public void bindMenuItem(String name, Command command) {
-		MenuItem menuItem = this.getMenuItem(name);
-		if (menuItem != null) {
-			this.addCommand(name, command);
-		}
 	}
 }

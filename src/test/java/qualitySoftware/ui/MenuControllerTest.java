@@ -70,7 +70,7 @@ class MenuControllerTest {
 
     @Test
     void testBindMenuItem() {
-        menuController.bindMenuItem(MenuController.SAVE, testCommand);
+        menuController.addCommand(MenuController.SAVE, testCommand);
         menuController.executeCommand(MenuController.SAVE);
         assertTrue(testCommand.executed);
     }

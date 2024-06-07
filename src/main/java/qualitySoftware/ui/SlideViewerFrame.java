@@ -43,11 +43,30 @@ SlideViewerFrame extends JFrame {
 		super(title);
 		this.menuController = menuController;
 		this.keyController = keyController;
-		this.keyController.setup(presentation);
+		this.setupKeyController(presentation);
 		this.setupMenuController(presentation);
 		SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, this);
 		presentation.setShowView(slideViewerComponent);
 		setupWindow(slideViewerComponent, presentation);
+	}
+
+	private void setupKeyController(Presentation presentation) {
+		// responsible for ensuring that the key controller knows which commands to expect
+		// if there are any new presentation-related keyboard commands, put them here
+		NextSlideCommand next = new NextSlideCommand(presentation);
+		PreviousSlideCommand prev =  new PreviousSlideCommand(presentation);
+		QuitCommand quit = new QuitCommand(presentation);
+		// Next Slide shortcuts
+		this.keyController.addCommand(KeyEvent.VK_DOWN, next);
+		this.keyController.addCommand(KeyEvent.VK_PAGE_DOWN, next);
+		this.keyController.addCommand(KeyEvent.VK_ENTER, next);
+		this.keyController.addCommand( KeyEvent.VK_PLUS, next);
+		// Previous slide shortcuts
+		this.keyController.addCommand(KeyEvent.VK_UP, prev);
+		this.keyController.addCommand(KeyEvent.VK_PAGE_UP, prev);
+		this.keyController.addCommand(KeyEvent.VK_MINUS, prev);
+		// Quit Command shortcuts
+		this.keyController.addCommand(KeyEvent.VK_Q, quit);
 	}
 
 	private void setupMenuController(Presentation presentation) {
@@ -62,14 +81,14 @@ SlideViewerFrame extends JFrame {
 		AboutBoxCommand aboutBox = new AboutBoxCommand(this, presentation);
 
 		// Bind menu items to commands
-		this.menuController.bindMenuItem("Open", openFile);
-		this.menuController.bindMenuItem("New", newFile);
-		this.menuController.bindMenuItem("Save", saveFile);
-		this.menuController.bindMenuItem("Exit", quit);
-		this.menuController.bindMenuItem("Next", nextSlide);
-		this.menuController.bindMenuItem("Prev", prevSlide);
-		this.menuController.bindMenuItem("Go to", gotoSlide);
-		this.menuController.bindMenuItem("About", aboutBox);
+		this.menuController.addCommand("Open", openFile);
+		this.menuController.addCommand("New", newFile);
+		this.menuController.addCommand("Save", saveFile);
+		this.menuController.addCommand("Exit", quit);
+		this.menuController.addCommand("Next", nextSlide);
+		this.menuController.addCommand("Prev", prevSlide);
+		this.menuController.addCommand("Go to", gotoSlide);
+		this.menuController.addCommand("About", aboutBox);
 	}
 
 	/**
