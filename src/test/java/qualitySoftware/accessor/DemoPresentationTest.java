@@ -2,43 +2,40 @@ package qualitySoftware.accessor;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import qualitySoftware.accessor.DemoPresentation;
 import qualitySoftware.presentation.Presentation;
-import qualitySoftware.presentation.Slide;
-// Added import statement
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DemoPresentationTest {
-    private Presentation presentation;
+class DemoPresentationTest {
+
     private DemoPresentation demoPresentation;
+    private Presentation presentation;
 
-    @BeforeEach // Use @Before instead of @BeforeEach for JUnit 4
-    public void setUp() {
-        presentation = new Presentation();
+    @BeforeEach
+    void setUp() {
         demoPresentation = new DemoPresentation();
+        presentation = new Presentation();
     }
 
-    @Test // Added @Test annotation
-    public void testLoadFile() {
-        demoPresentation.loadFile(presentation, "unused");
-        Slide firstSlide = presentation.getSlide(0);
-        assertEquals("JabberPoint", firstSlide.getTitle());
+    @Test
+    void loadFile_loadsDemoPresentation() {
+        // Act
+        demoPresentation.loadFile(presentation, "");
 
-        Slide secondSlide = presentation.getSlide(1);
-        assertEquals("Demonstration of levels and stijlen", secondSlide.getTitle());
+        // Assert presentation title
+        assertEquals("Demo Presentation", presentation.getTitle());
 
-        Slide thirdSlide = presentation.getSlide(2);
-        assertEquals("The third slide", thirdSlide.getTitle());
-
-        Slide fourthSlide = presentation.getSlide(3);
-        assertEquals("The fourth slide", fourthSlide.getTitle());
+        // Assert the number of slides
+        assertEquals(4, presentation.getSize());
     }
 
-    @Test // Added @Test annotation
-    public void testSaveFile() {
-        assertThrows(IllegalStateException.class, () -> {
-            demoPresentation.saveFile(presentation, "unused");
+    @Test
+    void saveFile_throwsIllegalStateException() {
+        // Assert
+        IllegalStateException exception = assertThrows(IllegalStateException.class, () -> {
+            // Act
+            demoPresentation.saveFile(presentation, "");
         });
+        assertEquals("Save As->Demo! called", exception.getMessage());
     }
 }

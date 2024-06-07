@@ -1,65 +1,57 @@
 package qualitySoftware;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import qualitySoftware.accessor.Accessor;
 import qualitySoftware.accessor.XMLAccessor;
 import qualitySoftware.presentation.Presentation;
-import qualitySoftware.presentation.Style;
-import qualitySoftware.ui.KeyControllerTest;
-import qualitySoftware.ui.MenuControllerTest;
-import qualitySoftware.ui.SlideViewerFrame;
 
-import javax.swing.JOptionPane;
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
 
-/**
- * JabberPoint Main Program
- * 
- * This program is distributed under the terms of the accompanying
- * COPYRIGHT.txt file (which is NOT the GNU General Public License).
- * Please read it. Your use of the software constitutes acceptance
- * of the terms in the COPYRIGHT.txt file.
- * 
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- * 
- * @autor Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- */
+import static org.junit.jupiter.api.Assertions.*;
 
-public class JabberPointTest {
-    protected static final String IOERR = "IO Error: ";
-    protected static final String JABERR = "Jabberpoint Error ";
-    protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
+class JabberPointTest {
+    private final String sampleXMLPresentation = "<presentation><showtitle>Unit Test Pres</showtitle><slide><title>Slide Title</title><item level=\"1\" kind=\"text\">Item Text</item></slide></presentation>";
+    private Presentation presentation;
 
-    /**
-     * The main program entry point.
-     * 
-     * @param argv command line arguments, expects an optional file name for the presentation
-     */
-    public static void main(String[] argv) {
-        Style.createStyles();
+    @BeforeEach
+    public void setUp() {
+        this.presentation = new Presentation();
+    }
 
-        Presentation presentation = new Presentation();
+    @Test
+    public void loadPresentation_noArguments_loadDemoPresentation() {
+        assertDoesNotThrow(
+                () -> {
+                    JabberPoint.loadPresentation(new String[] {}, this.presentation);
+                });
+        assertEquals(presentation.getTitle(), "Demo Presentation");
+    }
 
-        // Create and set up the main application window
-        new SlideViewerFrame(JABVERSION, presentation, new MenuControllerTest(), new KeyControllerTest());
+    @Test
+    public void loadPresentation_existingTargetFile_loadTargetPresentation() throws IOException {
+        // create an empty file to load the presentation from
+        File tempFile = Files.createTempFile("unit_test", ".xml").toFile();
+        PrintWriter out = new PrintWriter(tempFile);
 
         try {
-            if (argv.length == 0) {
-                // Load a demo presentation if no file is specified
-                Accessor.getDemoAccessor().loadFile(presentation, "");
-            } else {
-                // Load the specified presentation file
-                new XMLAccessor().loadFile(presentation, argv[0]);
-            }
+            // write our sample presentation into the temp file
+            out.println(sampleXMLPresentation);
+            out.close();
 
-            presentation.setSlideNumber(0);
-        } catch (IOException ex) {
-            // Show an error message if there is an IO error
-            JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
+            // Act
+            JabberPoint.loadPresentation(new String[]{tempFile.getAbsolutePath()}, presentation);
+
+            // Assert
+            assertEquals("Unit Test Pres", presentation.getTitle());
+        } finally {
+            // Clean up the temporary file
+            if (tempFile.exists()) {
+                tempFile.delete();
+            }
         }
     }
 }

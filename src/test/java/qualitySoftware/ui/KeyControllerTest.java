@@ -1,43 +1,107 @@
 package qualitySoftware.ui;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import qualitySoftware.command.Command;
+import qualitySoftware.presentation.Presentation;
+import qualitySoftware.ui.KeyController;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
-import java.util.HashMap;
 
-/** <p>This is the KeyController (KeyListener)</p>
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.1 2002/12/17 Gert Florijn
- * @version 1.2 2003/11/19 Sylvia Stuurman
- * @version 1.3 2004/08/17 Sylvia Stuurman
- * @version 1.4 2007/07/16 Sylvia Stuurman
- * @version 1.5 2010/03/03 Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
-*/
+import static org.junit.jupiter.api.Assertions.*;
 
-public class KeyControllerTest extends KeyAdapter {
-	private HashMap<Integer, Command> commands; // stores a list of all the keys that trigger a command; use addCommand to add another pair
+class KeyControllerTest {
 
-	public KeyControllerTest()
-	{
-		this.commands = new HashMap<>();
-	}
+    private KeyController keyController;
+    private MockCommand nextCommand;
+    private MockCommand prevCommand;
+    private MockCommand quitCommand;
 
-	public void addCommand(int keyCode, Command command)
-	{
-		if (!this.commands.containsKey(keyCode)) {
-			this.commands.put(keyCode, command);
-		}
-	}
+    @BeforeEach
+    void setUp() {
+        keyController = new KeyController();
+        nextCommand = new MockCommand();
+        prevCommand = new MockCommand();
+        quitCommand = new MockCommand();
 
-	// override from KeyAdapter, this method is invoked any time a key is pressed
-	public void keyPressed(KeyEvent keyEvent)
-	{
-		// check if there is a corresponding command to the key, if so, execute it;
-		int keyCode = keyEvent.getKeyCode();
-		if (this.commands.containsKey(keyCode)) {
-			this.commands.get(keyCode).execute();
-		}
-	}
+        // Adding commands manually for the test
+        keyController.addCommand(KeyEvent.VK_DOWN, nextCommand);
+        keyController.addCommand(KeyEvent.VK_PAGE_DOWN, nextCommand);
+        keyController.addCommand(KeyEvent.VK_ENTER, nextCommand);
+        keyController.addCommand(KeyEvent.VK_PLUS, nextCommand);
+
+        keyController.addCommand(KeyEvent.VK_UP, prevCommand);
+        keyController.addCommand(KeyEvent.VK_PAGE_UP, prevCommand);
+        keyController.addCommand(KeyEvent.VK_MINUS, prevCommand);
+
+        keyController.addCommand(KeyEvent.VK_Q, quitCommand);
+    }
+
+    @Test
+    void testNextSlideCommands() {
+        // Simulate key presses for next slide commands
+        simulateKeyPress(KeyEvent.VK_DOWN);
+        assertTrue(nextCommand.executed, "Next command should be executed for DOWN key");
+
+        nextCommand.executed = false; // Reset the flag
+        simulateKeyPress(KeyEvent.VK_PAGE_DOWN);
+        assertTrue(nextCommand.executed, "Next command should be executed for PAGE_DOWN key");
+
+        nextCommand.executed = false; // Reset the flag
+        simulateKeyPress(KeyEvent.VK_ENTER);
+        assertTrue(nextCommand.executed, "Next command should be executed for ENTER key");
+
+        nextCommand.executed = false; // Reset the flag
+        simulateKeyPress(KeyEvent.VK_PLUS);
+        assertTrue(nextCommand.executed, "Next command should be executed for PLUS key");
+    }
+
+    @Test
+    void testPreviousSlideCommands() {
+        // Simulate key presses for previous slide commands
+        simulateKeyPress(KeyEvent.VK_UP);
+        assertTrue(prevCommand.executed, "Previous command should be executed for UP key");
+
+        prevCommand.executed = false; // Reset the flag
+        simulateKeyPress(KeyEvent.VK_PAGE_UP);
+        assertTrue(prevCommand.executed, "Previous command should be executed for PAGE_UP key");
+
+        prevCommand.executed = false; // Reset the flag
+        simulateKeyPress(KeyEvent.VK_MINUS);
+        assertTrue(prevCommand.executed, "Previous command should be executed for MINUS key");
+    }
+
+    @Test
+    void testQuitCommands() {
+        // Simulate key press for quit command
+        simulateKeyPress(KeyEvent.VK_Q);
+        assertTrue(quitCommand.executed, "Quit command should be executed for Q key");
+    }
+
+    @Test
+    void testAddAndRemoveCommand() {
+        MockCommand testCommand = new MockCommand();
+        keyController.addCommand(KeyEvent.VK_A, testCommand);
+        simulateKeyPress(KeyEvent.VK_A);
+        assertTrue(testCommand.executed, "Test command should be executed for A key");
+
+        keyController.removeCommand(KeyEvent.VK_A);
+        testCommand.executed = false; // Reset the flag
+        simulateKeyPress(KeyEvent.VK_A);
+        assertFalse(testCommand.executed, "Test command should not be executed after removal");
+    }
+
+    private void simulateKeyPress(int keyCode) {
+        KeyEvent keyEvent = new KeyEvent(new java.awt.TextField(), KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, keyCode, KeyEvent.CHAR_UNDEFINED);
+        keyController.keyPressed(keyEvent);
+    }
+
+    private static class MockCommand implements Command {
+        boolean executed = false;
+
+        @Override
+        public void execute() {
+            executed = true;
+        }
+    }
 }

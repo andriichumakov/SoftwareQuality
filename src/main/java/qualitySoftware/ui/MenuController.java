@@ -3,12 +3,9 @@ package qualitySoftware.ui;
 import qualitySoftware.command.Command;
 
 import javax.swing.*;
-import java.awt.MenuBar;
-import java.awt.Menu;
-import java.awt.MenuItem;
-import java.awt.MenuShortcut;
-import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 
 /**
@@ -47,8 +44,8 @@ public class MenuController extends MenuBar {
 	protected static final String LOADERR = "Load Error";
 	protected static final String SAVEERR = "Save Error";
 
-	private HashMap<String, MenuItem> menuItems; // used to look up menu items based on their name to bind commands
-	private HashMap<String, Command> commands; // map menu item names to their command bindings
+	private final HashMap<String, MenuItem> menuItems;
+	private final HashMap<String, Command> commands;
 
 	public MenuController() {
 		this.menuItems = new HashMap<>();
@@ -82,7 +79,7 @@ public class MenuController extends MenuBar {
 		this.add(helpMenu);
 	}
 
-	// create a menu item
+	// Create a menu item
 	public MenuItem mkMenuItem(String name) {
 		MenuItem menuItem = new MenuItem(name, new MenuShortcut(name.charAt(0)));
 		menuItem.addActionListener(new ActionListener() {
@@ -118,7 +115,6 @@ public class MenuController extends MenuBar {
 		MenuItem menuItem = this.getMenuItem(name);
 		if (menuItem != null) {
 			this.addCommand(name, command);
-			//this.bindMenuItem(menuItem, command);
 		}
 	}
 }

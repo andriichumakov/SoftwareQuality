@@ -56,14 +56,9 @@ public class XMLAccessor extends Accessor {
 			Document document = builder.parse(new File(filename));
 			Element doc = document.getDocumentElement();
 			return doc;
-		} catch (IOException iox) {
-			System.err.println(iox.toString());
-		} catch (SAXException sax) {
-			System.err.println(sax.getMessage());
-		} catch (ParserConfigurationException pcx) {
-			System.err.println(PCE);
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			throw new IOException("Error loading presentation", e);
 		}
-		return null;
 	}
 
 	// Load presentation data from a file into a Presentation object
