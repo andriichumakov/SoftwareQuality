@@ -35,6 +35,11 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Upload JAR to Google Cloud Storage
+        run: gsutil cp target/*.jar gs://$GCP_BUCKET/
+        env:
+          GCP_BUCKET: ${{ secrets.GCP_BUCKET }}
+
       - name: Create GitHub Release
         id: create_release
         uses: softprops/action-gh-release@v1
