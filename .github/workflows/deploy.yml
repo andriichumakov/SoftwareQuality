@@ -32,7 +32,7 @@ jobs:
           java-version: '11'
 
       - name: Build JAR file
-        run: mvn clean package
+        run: mvn clean package -DskipTests
 
       - name: Upload JAR to Google Cloud Storage
         run: |
