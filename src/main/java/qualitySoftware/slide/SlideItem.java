@@ -22,14 +22,14 @@ import java.awt.image.ImageObserver;
 public interface SlideItem {
 
 	// Give the bounding box
-	public Rectangle getBoundingBox(Graphics g,
-			ImageObserver observer, float scale, Style style);
+    Rectangle getBoundingBox(Graphics g,
+                             ImageObserver observer, float scale, Style style);
 
-	public int getLevel();
+	int getLevel();
 
 	// Draw the item
-	public void draw(int x, int y, float scale,
-			Graphics g, Style style, ImageObserver observer);
+    void draw(int x, int y, float scale,
+              Graphics g, Style style, ImageObserver observer);
 
-	public String toXML();
+	String toXML();
 }
