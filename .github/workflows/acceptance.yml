@@ -1,50 +1,34 @@
-name: acceptance upload jar to gcloud
-
+name: Publish to acceptance test on Google Cloud
 on:
   push:
-    branches: ["main", "dev"]
+    branches: [ "acceptance" ]
   pull_request:
-    branches: ["main", "dev"]
+    branches: [ "acceptance" ]
 
 jobs:
-  build_and_release:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Set up JDK 19
-        uses: actions/setup-java@v4
-        with:
-          distribution: "temurin"
-          java-version: "19"
-          cache: maven
+      - name: Log recent commit
+        run: git log -1
 
-      - name: Build the application
+      - name: Build project
         run: mvn clean package
 
-      - name: Set up Node.js 20
-        uses: actions/setup-node@v3
+      - name: List target directory contents
+        run: ls -la target
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
         with:
-          node-version: "20"
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
 
-      - name: Authenticate to Google Cloud
-        env:
-          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: |
-          echo "${GCP_SA_KEY}" > $HOME/gcloud-service-key.json
-          gcloud auth activate-service-account --key-file=$HOME/gcloud-service-key.json
-          gcloud config set project ${{ secrets.GCP_PROJECT }}
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
 
-      - name: Install Google Cloud SDK
-        run: |
-          sudo apt-get install apt-transport-https ca-certificates gnupg -y
-          echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee /etc/apt/sources.list.d/google-cloud-sdk.list
-          curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-          sudo apt-get update && sudo apt-get install google-cloud-sdk -y
-
-      - name: Enable Google Cloud APIs
-        run: gcloud services enable storage.googleapis.com
-
-      - name: Upload JAR to Google Cloud Storage
-        run: gsutil cp target/*.jar gs://acceptance-jabber-point/
+      - name: 'Use gcloud CLI'
+        run: 'gcloud storage cp target/*.jar gs://acceptance-jabber-point/'
