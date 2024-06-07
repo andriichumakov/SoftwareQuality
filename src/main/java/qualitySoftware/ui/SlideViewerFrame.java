@@ -79,4 +79,12 @@ SlideViewerFrame extends JFrame {
 		setSize(new Dimension(WIDTH, HEIGHT)); // Same sizes as Slide has.
 		setVisible(true);
 	}
+
+	public String getStrDialogInput(String message) {
+		return JOptionPane.showInputDialog(message);
+	}
+
+	public int getIntDialogInput(String message) {
+		return Integer.parseInt(this.getStrDialogInput(message));
+	}
 }

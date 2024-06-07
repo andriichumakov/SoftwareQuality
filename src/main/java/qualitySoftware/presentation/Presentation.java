@@ -1,8 +1,14 @@
 package qualitySoftware.presentation;
 
+import qualitySoftware.accessor.Accessor;
+import qualitySoftware.accessor.XMLAccessor;
+import qualitySoftware.command.FrameCommand;
 import qualitySoftware.ui.SlideViewerComponent;
+import qualitySoftware.ui.SlideViewerFrame;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -106,11 +112,46 @@ public class Presentation {
 		System.exit(n);
 	}
 
-	public String getStrDialogInput(String message) {
-		return JOptionPane.showInputDialog(message);
+	public void openFile(SlideViewerFrame frame) {
+		this.clear();
+		XMLAccessor xmlAccessor = new XMLAccessor();
+		String targetFile = frame.getStrDialogInput(new String(FrameCommand.FILENAME));
+		if (targetFile.isEmpty()) { // if no file is specified, open the test file (test.xml)
+			targetFile = FrameCommand.TESTFILE;
+		}
+		try {
+			xmlAccessor.loadFile(this, targetFile);
+			this.setSlideNumber(0);
+		} catch (IOException exc) {
+			JOptionPane.showMessageDialog(frame, FrameCommand.IOEX + exc,
+					FrameCommand.LOADERR, JOptionPane.ERROR_MESSAGE);
+		}
+		frame.repaint();
+		System.out.println("Opened File: " + targetFile);
 	}
 
-	public int getIntDialogInput(String message) {
-		return Integer.parseInt(this.getStrDialogInput(message));
+	public void gotoSlide(SlideViewerFrame frame) {
+		String pageNumberStr = JOptionPane.showInputDialog((Object) FrameCommand.PAGENR);
+		int pageNumber = Integer.parseInt(pageNumberStr);
+		this.setSlideNumber(pageNumber - 1);
+	}
+
+	public void newFile(SlideViewerFrame frame) {
+		this.clear();
+		frame.repaint();
+	}
+
+	public void saveFile(SlideViewerFrame frame) {
+		Accessor xmlAccessor = new XMLAccessor();
+		String targetFile = JOptionPane.showInputDialog((Object) FrameCommand.FILENAME);
+		if (targetFile == null || targetFile.trim().isEmpty()) { // if no file is specified, open the test file (test.xml)
+			targetFile = FrameCommand.SAVEFILE;
+		}
+		try {
+			xmlAccessor.saveFile(this, targetFile);
+		} catch (IOException exc) {
+			JOptionPane.showMessageDialog(frame, FrameCommand.IOEX + exc, FrameCommand.SAVEERR, JOptionPane.ERROR_MESSAGE);
+		}
+		System.out.println("Saved in: " + targetFile);
 	}
 }
