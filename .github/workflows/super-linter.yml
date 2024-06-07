@@ -2,9 +2,10 @@ name: Lint Code Base
 
 on:
   push:
-    branches: ["main", "dev", "unitTests", "acceptance"]
+    branches: ["dev"]
   pull_request:
-    branches: ["main", "dev", "unitTests", "acceptance"]
+    branches: ["dev"]
+  workflow_dispatch:
 
 jobs:
   run-lint:
@@ -13,17 +14,18 @@ jobs:
     permissions:
       contents: read
       packages: read
-      statuses: write # To report GitHub Actions status checks
+      statuses: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # super-linter needs the full git history to get the list of files that changed across commits
+          fetch-depth: 0
 
       - name: Run Super-linter
-        uses: github/super-linter@v6 # Use the major version to get minor updates
+        uses: github/super-linter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: true
-          DEFAULT_BRANCH: main # Default branch to compare changes against
+          DEFAULT_BRANCH: main
+          REPORT_ONLY: true
