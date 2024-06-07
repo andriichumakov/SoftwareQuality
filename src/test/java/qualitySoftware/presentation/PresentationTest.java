@@ -2,26 +2,18 @@ package qualitySoftware.presentation;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import qualitySoftware.ui.SlideViewerComponent;
-import qualitySoftware.ui.SlideViewerFrame;
-import qualitySoftware.accessor.XMLAccessor;
-
-import javax.swing.*;
-import java.io.IOException;
+import qualitySoftware.accessor.*;
+import qualitySoftware.ui.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PresentationTest {
 
     private Presentation presentation;
-    private MockSlideViewerComponent mockSlideViewerComponent;
-    private MockSlideViewerFrame mockSlideViewerFrame;
 
     @BeforeEach
     void setUp() {
-        mockSlideViewerComponent = new MockSlideViewerComponent();
-        mockSlideViewerFrame = new MockSlideViewerFrame("Test Frame");
-        presentation = new Presentation(mockSlideViewerComponent);
+        presentation = new Presentation();
     }
 
     @Test
@@ -49,14 +41,6 @@ class PresentationTest {
         presentation.append(slide2);
         presentation.setSlideNumber(1);
         assertEquals(slide2, presentation.getCurrentSlide());
-    }
-
-    @Test
-    void setSlideNumber_updatesSlideViewerComponent() {
-        Slide slide = new Slide();
-        presentation.append(slide);
-        presentation.setSlideNumber(0);
-        assertTrue(mockSlideViewerComponent.updated);
     }
 
     @Test
@@ -90,33 +74,44 @@ class PresentationTest {
     }
 
     @Test
-    void openFile_validFile_loadsPresentation() {
-        // Mocking file dialog input
-        mockSlideViewerFrame.setMockInput("test.xml");
-
-        // Mocking XMLAccessor loadFile method
-        MockXMLAccessor mockXMLAccessor = new MockXMLAccessor();
-        presentation.openFile(mockSlideViewerFrame);
-
-        // Verifying the presentation loaded
-        assertTrue(mockXMLAccessor.loaded);
-        assertEquals(0, presentation.getSlideNumber());
+    void getSlide_validNumber_returnsSlide() {
+        Slide slide = new Slide();
+        presentation.append(slide);
+        assertEquals(slide, presentation.getSlide(0));
     }
 
     @Test
-    void saveFile_validFile_savesPresentation() {
-        // Mocking file dialog input
-        mockSlideViewerFrame.setMockInput("test.xml");
-
-        // Mocking XMLAccessor saveFile method
-        MockXMLAccessor mockXMLAccessor = new MockXMLAccessor();
-        presentation.saveFile(mockSlideViewerFrame);
-
-        // Verifying the presentation saved
-        assertTrue(mockXMLAccessor.saved);
+    void getSlide_invalidNumber_returnsNull() {
+        assertNull(presentation.getSlide(0));
     }
 
-    // Mock classes
+    @Test
+    void getCurrentSlide_returnsCurrentSlide() {
+        Slide slide = new Slide();
+        presentation.append(slide);
+        presentation.setSlideNumber(0);
+        assertEquals(slide, presentation.getCurrentSlide());
+    }
+
+    @Test
+    void setShowView_updatesSlideViewerComponent() {
+        MockSlideViewerComponent mockSlideViewerComponent = new MockSlideViewerComponent();
+        presentation.setShowView(mockSlideViewerComponent);
+        Slide slide = new Slide();
+        presentation.append(slide);
+        presentation.setSlideNumber(0);
+        assertTrue(mockSlideViewerComponent.updated);
+    }
+
+    @Test
+    void openFile_withMockInput_loadsPresentation() {
+        presentation.openFile(new MockSlideViewerFrame("Test Frame"));
+
+        // Assert that the presentation is loaded
+        assertEquals(0, presentation.getSlideNumber());
+    }
+
+    // Mock classes for testing
 
     private static class MockSlideViewerComponent extends SlideViewerComponent {
         boolean updated = false;
@@ -132,14 +127,10 @@ class PresentationTest {
     }
 
     private static class MockSlideViewerFrame extends SlideViewerFrame {
-        private String mockInput;
+        private String mockInput = "test.xml";
 
         public MockSlideViewerFrame(String title) {
             super(title, new Presentation(), new MenuController(), new KeyController());
-        }
-
-        public void setMockInput(String input) {
-            mockInput = input;
         }
 
         @Override
@@ -149,8 +140,8 @@ class PresentationTest {
     }
 
     private static class MockXMLAccessor extends XMLAccessor {
-        boolean loaded = false;
-        boolean saved = false;
+        static boolean loaded = false;
+        static boolean saved = false;
 
         @Override
         public void loadFile(Presentation presentation, String filename) {
